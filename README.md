@@ -1,5 +1,5 @@
-NelmioApiDocBundle
-==================
+Fork of NelmioApiDocBundle that makes 2.x version compatible with Symfony 5
+===========================================================================
 
 [![Build
 Status](https://secure.travis-ci.org/nelmio/NelmioApiDocBundle.png?branch=master)](http://travis-ci.org/nelmio/NelmioApiDocBundle)
