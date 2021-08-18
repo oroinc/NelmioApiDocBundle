@@ -12,18 +12,64 @@
 namespace Nelmio\ApiDocBundle\Command;
 
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Nelmio\ApiDocBundle\Extractor\ApiDocExtractor;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\RouterInterface;
+use Nelmio\ApiDocBundle\Formatter\FormatterInterface;
 
-class DumpCommand extends ContainerAwareCommand
+class DumpCommand extends Command
 {
+    protected static $defaultName = 'api:doc:dump';
+
     /**
      * @var array
      */
     protected $availableFormats = array('markdown', 'json', 'html');
+
+    /**
+     * @var RouterInterface
+     */
+    protected $router;
+
+    /**
+     * @var ApiDocExtractor
+     */
+    protected $extractor;
+
+    /**
+     * @var FormatterInterface
+     */
+    protected $simpleFormatter;
+
+    /**
+     * @var FormatterInterface
+     */
+    protected $markdownFormatter;
+
+    /**
+     * @var FormatterInterface
+     */
+    protected $htmlFormatter;
+
+    public function __construct(
+        RouterInterface $router,
+        ApiDocExtractor $extractor,
+        FormatterInterface $simpleFormatter,
+        FormatterInterface $markdownFormatter,
+        FormatterInterface $htmlFormatter
+    ) {
+        $this->router = $router;
+        $this->extractor = $extractor;
+        $this->simpleFormatter = $simpleFormatter;
+        $this->markdownFormatter = $markdownFormatter;
+        $this->htmlFormatter = $htmlFormatter;
+
+        parent::__construct();
+    }
+
 
     protected function configure()
     {
@@ -36,7 +82,6 @@ class DumpCommand extends ContainerAwareCommand
             )
             ->addOption('view', '', InputOption::VALUE_OPTIONAL, '', ApiDoc::DEFAULT_VIEW)
             ->addOption('no-sandbox', '', InputOption::VALUE_NONE)
-            ->setName('api:doc:dump')
             ;
     }
 
@@ -45,28 +90,28 @@ class DumpCommand extends ContainerAwareCommand
         $format = $input->getOption('format');
         $view = $input->getOption('view');
 
-        $routeCollection = $this->getContainer()->get('router')->getRouteCollection();
+        $routeCollection = $this->router->getRouteCollection();
 
         if ($format == 'json') {
-            $formatter = $this->getContainer()->get('nelmio_api_doc.formatter.simple_formatter');
+            $formatter = $this->simpleFormatter;
         } else {
-            if (!in_array($format, $this->availableFormats)) {
-                throw new \RuntimeException(sprintf('Format "%s" not supported.', $format));
+            switch ($format) {
+                case 'markdown':
+                    $formatter = $this->markdownFormatter;
+                    break;
+                case 'html':
+                    $formatter = $this->htmlFormatter;
+                    break;
+                default:
+                    throw new \RuntimeException(sprintf('Format "%s" not supported.', $format));
             }
-
-            $formatter = $this->getContainer()->get(sprintf('nelmio_api_doc.formatter.%s_formatter', $format));
         }
 
         if ($input->getOption('no-sandbox') && 'html' === $format) {
             $formatter->setEnableSandbox(false);
         }
 
-        if ('html' === $format && method_exists($this->getContainer(), 'enterScope')) {
-            $this->getContainer()->enterScope('request');
-            $this->getContainer()->set('request', new Request(), 'request');
-        }
-
-        $extractedDoc = $this->getContainer()->get('nelmio_api_doc.extractor.api_doc_extractor')->all($view);
+        $extractedDoc = $this->extractor->all($view);
         $formattedDoc = $formatter->format($extractedDoc);
 
         if ('json' === $format) {
@@ -74,5 +119,7 @@ class DumpCommand extends ContainerAwareCommand
         } else {
             $output->writeln($formattedDoc, OutputInterface::OUTPUT_RAW);
         }
+
+        return 0;
     }
 }

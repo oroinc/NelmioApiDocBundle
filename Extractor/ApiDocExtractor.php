@@ -18,7 +18,6 @@ use Nelmio\ApiDocBundle\DataTypes;
 use Nelmio\ApiDocBundle\Parser\ParserInterface;
 use Nelmio\ApiDocBundle\Parser\PostParserInterface;
 use Nelmio\ApiDocBundle\Util\DocCommentExtractor;
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Route;
@@ -49,11 +48,6 @@ class ApiDocExtractor
     private $commentExtractor;
 
     /**
-     * @var ControllerNameParser
-     */
-    protected $controllerNameParser;
-
-    /**
      * @var ParserInterface[]
      */
     protected $parsers = array();
@@ -68,13 +62,12 @@ class ApiDocExtractor
      */
     protected $annotationsProviders;
 
-    public function __construct(ContainerInterface $container, RouterInterface $router, Reader $reader, DocCommentExtractor $commentExtractor, ControllerNameParser $controllerNameParser, array $handlers, array $annotationsProviders)
+    public function __construct(ContainerInterface $container, RouterInterface $router, Reader $reader, DocCommentExtractor $commentExtractor, array $handlers, array $annotationsProviders)
     {
         $this->container            = $container;
         $this->router               = $router;
         $this->reader               = $reader;
         $this->commentExtractor     = $commentExtractor;
-        $this->controllerNameParser = $controllerNameParser;
         $this->handlers             = $handlers;
         $this->annotationsProviders = $annotationsProviders;
     }
@@ -204,10 +197,6 @@ class ApiDocExtractor
      */
     public function getReflectionMethod($controller)
     {
-        if (false === strpos($controller, '::') && 2 === substr_count($controller, ':')) {
-            $controller = $this->controllerNameParser->parse($controller);
-        }
-
         if (preg_match('#(.+)::([\w]+)#', $controller, $matches)) {
             $class = $matches[1];
             $method = $matches[2];
@@ -217,7 +206,7 @@ class ApiDocExtractor
                 $method = $matches[2];
             }
 
-            if ($this->container->has($controller)) {
+            if ($controller && $this->container->has($controller)) {
                 // BC SF < 3.0
                 if (method_exists($this->container, 'enterScope')) {
                     $this->container->enterScope('request');

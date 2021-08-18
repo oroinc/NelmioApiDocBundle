@@ -22,16 +22,11 @@
     <services>
         <service id="nelmio_api_doc.doc_comment_extractor" class="%nelmio_api_doc.doc_comment_extractor.class%" />
 
-        <service id="nelmio_api_doc.controller_name_parser" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
-            <argument type="service" id="kernel" />
-        </service>
-
         <service id="nelmio_api_doc.extractor.api_doc_extractor" class="%nelmio_api_doc.extractor.api_doc_extractor.class%" public="true">
             <argument type="service" id="service_container" />
             <argument type="service" id="router" />
             <argument type="service" id="annotation_reader" />
             <argument type="service" id="nelmio_api_doc.doc_comment_extractor" />
-            <argument type="service" id="nelmio_api_doc.controller_name_parser" />
             <argument type="collection" />
             <argument type="collection" />
         </service>
@@ -73,6 +68,20 @@
         <!-- priority=1 means it comes before the validation parser, which can often add better type information -->
         <service id="nelmio_api_doc.parser.json_serializable_parser" class="%nelmio_api_doc.parser.json_serializable_parser.class%">
             <tag name="nelmio_api_doc.extractor.parser" priority="1" />
+        </service>
+
+        <service id="nelmio_api_doc.api_doc_dump_command" class="Nelmio\ApiDocBundle\Command\DumpCommand">
+            <argument type="service" id="router" />
+            <argument type="service" id="nelmio_api_doc.extractor.api_doc_extractor" />
+            <argument type="service" id="nelmio_api_doc.formatter.simple_formatter" />
+            <argument type="service" id="nelmio_api_doc.formatter.markdown_formatter" />
+            <argument type="service" id="nelmio_api_doc.formatter.html_formatter" />
+            <tag name="console.command" />
+        </service>
+        <service id="nelmio_api_doc.api_swagger_dump_command" class="Nelmio\ApiDocBundle\Command\SwaggerDumpCommand">
+            <argument type="service" id="nelmio_api_doc.extractor.api_doc_extractor" />
+            <argument type="service" id="nelmio_api_doc.formatter.swagger_formatter" />
+            <tag name="console.command" />
         </service>
     </services>
 

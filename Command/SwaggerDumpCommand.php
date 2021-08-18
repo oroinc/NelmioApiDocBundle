@@ -11,8 +11,9 @@
 
 namespace Nelmio\ApiDocBundle\Command;
 
+use Nelmio\ApiDocBundle\Extractor\ApiDocExtractor;
 use Nelmio\ApiDocBundle\Formatter\SwaggerFormatter;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -25,8 +26,10 @@ use Symfony\Component\Filesystem\Filesystem;
  *
  * @author Bez Hermoso <bez@activelamp.com>
  */
-class SwaggerDumpCommand extends ContainerAwareCommand
+class SwaggerDumpCommand extends Command
 {
+    protected static $defaultName = 'api:swagger:dump';
+
     /**
      * @var Filesystem
      */
@@ -36,6 +39,19 @@ class SwaggerDumpCommand extends ContainerAwareCommand
      * @var SwaggerFormatter
      */
     protected $formatter;
+
+    /**
+     * @var ApiDocExtractor
+     */
+    protected $extractor;
+
+    public function __construct(ApiDocExtractor $extractor, SwaggerFormatter $formatter)
+    {
+        $this->extractor = $extractor;
+        $this->formatter = $formatter;
+
+        parent::__construct();
+    }
 
     protected function configure()
     {
@@ -47,27 +63,22 @@ class SwaggerDumpCommand extends ContainerAwareCommand
             ->addOption('list-only', 'l', InputOption::VALUE_NONE, 'Dump resource list only.')
             ->addOption('pretty', 'p', InputOption::VALUE_NONE, 'Dump as prettified JSON.')
             ->addArgument('destination', InputArgument::OPTIONAL, 'Directory to dump JSON files in.', null)
-            ->setName('api:swagger:dump');
+            ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $container = $this->getContainer();
-
-        $extractor = $container->get('nelmio_api_doc.extractor.api_doc_extractor');
-        $this->formatter = $container->get('nelmio_api_doc.formatter.swagger_formatter');
-
         if ($input->getOption('list-only') && $input->getOption('resource')) {
             throw new \RuntimeException('Cannot selectively dump a resource with the --list-only flag.');
         }
 
-        $apiDocs = $extractor->all();
+        $apiDocs = $this->extractor->all();
 
         if ($input->getOption('list-only')) {
             $data = $this->getResourceList($apiDocs, $output);
             $this->dump($data, null, $input, $output);
 
-            return;
+            return 0;
         }
 
         if (false != ($resource = $input->getOption('resource'))) {
@@ -77,7 +88,7 @@ class SwaggerDumpCommand extends ContainerAwareCommand
             }
             $this->dump($data, $resource, $input, $output);
 
-            return;
+            return 0;
         }
 
         /*
@@ -102,6 +113,8 @@ class SwaggerDumpCommand extends ContainerAwareCommand
             $data = $this->getApiDeclaration($apiDocs, $resource, $output);
             $this->dump($data, $resource, $input, $output, false);
         }
+
+        return 0;
     }
 
     protected function dump(array $data, $resource, InputInterface $input, OutputInterface $output, $treatAsFile = true)

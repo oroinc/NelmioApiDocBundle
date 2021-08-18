@@ -14,7 +14,6 @@ namespace Nelmio\ApiDocBundle\Extractor;
 use Doctrine\Common\Annotations\Reader;
 use Nelmio\ApiDocBundle\Util\DocCommentExtractor;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser;
 use Symfony\Component\Config\ConfigCache;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -42,7 +41,6 @@ class CachingApiDocExtractor extends ApiDocExtractor
      * @param RouterInterface      $router
      * @param Reader               $reader
      * @param DocCommentExtractor  $commentExtractor
-     * @param ControllerNameParser $controllerNameParser
      * @param array                $handlers
      * @param array                $annotationsProviders
      * @param string               $cacheFile
@@ -53,13 +51,12 @@ class CachingApiDocExtractor extends ApiDocExtractor
         RouterInterface $router,
         Reader $reader,
         DocCommentExtractor $commentExtractor,
-        ControllerNameParser $controllerNameParser,
         array $handlers,
         array $annotationsProviders,
         $cacheFile,
         $debug = false
     ) {
-        parent::__construct($container, $router, $reader, $commentExtractor, $controllerNameParser, $handlers, $annotationsProviders);
+        parent::__construct($container, $router, $reader, $commentExtractor, $handlers, $annotationsProviders);
 
         $this->cacheFile = $cacheFile;
         $this->debug = $debug;
