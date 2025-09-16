@@ -13,6 +13,7 @@ namespace Nelmio\ApiDocBundle\Command;
 
 use Nelmio\ApiDocBundle\Extractor\ApiDocExtractor;
 use Nelmio\ApiDocBundle\Formatter\SwaggerFormatter;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -26,10 +27,9 @@ use Symfony\Component\Filesystem\Filesystem;
  *
  * @author Bez Hermoso <bez@activelamp.com>
  */
+#[AsCommand(name: 'api:swagger:dump', description: 'Dumps Swagger-compliant API definitions.')]
 class SwaggerDumpCommand extends Command
 {
-    protected static $defaultName = 'api:swagger:dump';
-
     /**
      * @var Filesystem
      */
@@ -58,7 +58,6 @@ class SwaggerDumpCommand extends Command
         $this->filesystem = new Filesystem();
 
         $this
-            ->setDescription('Dumps Swagger-compliant API definitions.')
             ->addOption('resource', 'r', InputOption::VALUE_OPTIONAL, 'A specific resource API declaration to dump.')
             ->addOption('list-only', 'l', InputOption::VALUE_NONE, 'Dump resource list only.')
             ->addOption('pretty', 'p', InputOption::VALUE_NONE, 'Dump as prettified JSON.')
@@ -66,7 +65,7 @@ class SwaggerDumpCommand extends Command
             ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($input->getOption('list-only') && $input->getOption('resource')) {
             throw new \RuntimeException('Cannot selectively dump a resource with the --list-only flag.');
@@ -78,7 +77,7 @@ class SwaggerDumpCommand extends Command
             $data = $this->getResourceList($apiDocs, $output);
             $this->dump($data, null, $input, $output);
 
-            return 0;
+            return Command::SUCCESS;
         }
 
         if (false != ($resource = $input->getOption('resource'))) {
@@ -88,7 +87,7 @@ class SwaggerDumpCommand extends Command
             }
             $this->dump($data, $resource, $input, $output);
 
-            return 0;
+            return Command::SUCCESS;
         }
 
         /*
@@ -114,7 +113,7 @@ class SwaggerDumpCommand extends Command
             $this->dump($data, $resource, $input, $output, false);
         }
 
-        return 0;
+        return Command::SUCCESS;
     }
 
     protected function dump(array $data, $resource, InputInterface $input, OutputInterface $output, $treatAsFile = true)

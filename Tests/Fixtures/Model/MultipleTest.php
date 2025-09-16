@@ -18,9 +18,7 @@ class MultipleTest
 {
     public $nothing;
 
-    /**
-     * @Assert\Type("DateTime")
-     */
+    #[Assert\Type('DateTime')]
     public $bar;
 
     /**
@@ -34,11 +32,7 @@ class MultipleTest
      */
     public $related;
 
-    /**
-     * @Assert\Type(type="array")
-     * @Assert\All({
-     *     @Assert\Type(type="Test")
-     * })
-     */
+    #[Assert\Type(type: 'array')]
+    #[Assert\All([new Assert\Type(type: 'Test')])]
     public $objects;
 }

@@ -20,6 +20,7 @@ use Nelmio\ApiDocBundle\Tests\WebTestCase;
  */
 class DunglasApiParserTest extends WebTestCase
 {
+    #[\Override]
     protected function setUp()
     {
         if (!class_exists('Dunglas\ApiBundle\DunglasApiBundle')) {

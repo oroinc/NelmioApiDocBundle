@@ -16,7 +16,7 @@ use JMS\Serializer\Annotation as JMS;
 class JmsInline
 {
     /**
-     * @JMS\Type("string");
+     * @JMS\Type("string")
      */
     public $foo;
 

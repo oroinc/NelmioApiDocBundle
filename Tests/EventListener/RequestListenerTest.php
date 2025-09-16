@@ -12,6 +12,7 @@
 namespace Nelmio\ApiDocBundle\Tests\EventListener;
 
 use Nelmio\ApiDocBundle\Tests\WebTestCase;
+use Symfony\Component\HttpFoundation\Request;
 
 class RequestListenerTest extends WebTestCase
 {
@@ -19,12 +20,12 @@ class RequestListenerTest extends WebTestCase
     {
         $client = $this->createClient();
 
-        $client->request('GET', '/tests?_doc=1');
+        $client->request(Request::METHOD_GET, '/tests?_doc=1');
         $content = $client->getResponse()->getContent();
         $this->assertTrue(0 !== strpos($content, '<h1>API documentation</h1>'), 'Event listener should capture ?_doc=1 requests');
         $this->assertTrue(0 !== strpos($content, '/tests.{_format}'), 'Event listener should capture ?_doc=1 requests');
 
-        $client->request('GET', '/tests');
+        $client->request(Request::METHOD_GET, '/tests');
         $this->assertEquals('tests', $client->getResponse()->getContent(), 'Event listener should let normal requests through');
     }
 }

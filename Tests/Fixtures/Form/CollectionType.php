@@ -21,7 +21,7 @@ class CollectionType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $collectionType = 'Symfony\Component\Form\Extension\Core\Type\CollectionType';
         $builder
@@ -46,7 +46,8 @@ class CollectionType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    #[\Override]
+    public function getBlockPrefix(): string
     {
         return 'collection_type';
     }

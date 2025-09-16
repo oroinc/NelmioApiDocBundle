@@ -21,6 +21,7 @@ class ValidationParserTest extends WebTestCase
 {
     protected $handler;
 
+    #[\Override]
     public function setUp()
     {
         $container  = $this->getContainer();

@@ -25,7 +25,7 @@ class DependencyType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('a', null, array('description' => 'A nice description'))
@@ -45,7 +45,7 @@ class DependencyType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults(array(
             'data_class' => 'Nelmio\ApiDocBundle\Tests\Fixtures\Model\Test',
@@ -66,7 +66,8 @@ class DependencyType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    #[\Override]
+    public function getBlockPrefix(): string
     {
         return 'dependency_type';
     }

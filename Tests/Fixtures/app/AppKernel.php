@@ -19,7 +19,7 @@ use Symfony\Component\HttpKernel\Kernel;
  */
 class AppKernel extends Kernel
 {
-    public function registerBundles()
+    public function registerBundles(): iterable
     {
         $bundles = array(
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
@@ -42,11 +42,13 @@ class AppKernel extends Kernel
         return __DIR__;
     }
 
+    #[\Override]
     public function getCacheDir()
     {
         return sys_get_temp_dir().'/'.Kernel::VERSION.'/nelmio-api-doc/cache/'.$this->environment;
     }
 
+    #[\Override]
     public function getLogDir()
     {
         return sys_get_temp_dir().'/'.Kernel::VERSION.'/nelmio-api-doc/logs';

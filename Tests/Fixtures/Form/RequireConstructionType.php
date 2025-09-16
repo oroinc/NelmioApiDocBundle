@@ -28,7 +28,7 @@ class RequireConstructionType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         if ($this->noThrow !== true)
             throw new \RuntimeException(__CLASS__ . " require contruction");
@@ -51,7 +51,7 @@ class RequireConstructionType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults(array(
             'data_class' => 'Nelmio\ApiDocBundle\Tests\Fixtures\Model\Test',
@@ -72,7 +72,8 @@ class RequireConstructionType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    #[\Override]
+    public function getBlockPrefix(): string
     {
         return 'require_construction_type';
     }

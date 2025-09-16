@@ -25,6 +25,7 @@ class SwaggerFormatterTest extends WebTestCase
      */
     protected $formatter;
 
+    #[\Override]
     protected function setUp()
     {
         parent::setUp();

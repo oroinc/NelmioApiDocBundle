@@ -126,32 +126,32 @@ class TestController
 
     /**
      * @ApiDoc()
-     * @QueryParam(strict=true, name="page", requirements="\d+", description="Page of the overview.")
      */
+    #[QueryParam(strict: true, name: 'page', requirements: '\d+', description: 'Page of the overview.')]
     public function zActionWithQueryParamStrictAction()
     {
     }
 
     /**
      * @ApiDoc()
-     * @QueryParam(name="page", requirements="\d+", default="1", description="Page of the overview.")
      */
+    #[QueryParam(name: 'page', requirements: '\d+', default: 1, description: 'Page of the overview.')]
     public function zActionWithQueryParamAction()
     {
     }
 
     /**
      * @ApiDoc()
-     * @QueryParam(name="page", requirements="\d+", description="Page of the overview.")
      */
+    #[QueryParam(name: 'page', requirements: '\d+', description: 'Page of the overview.')]
     public function zActionWithQueryParamNoDefaultAction()
     {
     }
 
     /**
      * @ApiDoc()
-     * @QueryParam(name="mail", requirements=@Assert\Email, description="Email of someone.")
      */
+    #[QueryParam(name: 'mail', requirements: new Assert\Email(), description: 'Email of someone.')]
     public function zActionWithConstraintAsRequirements()
     {
     }
@@ -178,16 +178,16 @@ class TestController
 
     /**
      * @ApiDoc()
-     * @RequestParam(name="param1", requirements="string", description="Param1 description.")
      */
+    #[RequestParam(name: 'param1', requirements: 'string', description: 'Param1 description.')]
     public function zActionWithRequestParamAction()
     {
     }
 
     /**
      * @ApiDoc()
-     * @RequestParam(name="param1", requirements="string", description="Param1 description.", nullable=true)
      */
+    #[RequestParam(name: 'param1', requirements: 'string', description: 'Param1 description.', nullable: true)]
     public function zActionWithNullableRequestParamAction()
     {
     }
@@ -219,16 +219,16 @@ class TestController
 
     /**
      * @ApiDoc()
-     * @Cache(maxage=60, public=1)
      */
+    #[\Symfony\Component\HttpKernel\Attribute\Cache(maxage: 60, public: 1)]
     public function zCachedAction()
     {
     }
 
     /**
      * @ApiDoc()
-     * @Security("has_role('ROLE_USER')")
      */
+    #[Security("has_role('ROLE_USER')")]
     public function zSecuredAction()
     {
     }
@@ -401,24 +401,24 @@ class TestController
 
     /**
      * @ApiDoc()
-     * @QueryParam(name="param1", requirements={"rule": "regexp", "error_message": "warning"}, description="Param1 description.")
      */
+    #[QueryParam(name: 'param1', requirements: ['rule' => 'regexp', 'error_message' => 'warning'], description: 'Param1 description.')]
     public function routeWithQueryParamArrayRequirementsAction()
     {
     }
 
     /**
      * @ApiDoc()
-     * @QueryParam(name="param1", requirements={@Assert\NotNull(), @Assert\NotBlank()}, description="Param1 description.")
      */
+    #[QueryParam(name: 'param1', requirements: [new Assert\NotNull(), new Assert\NotBlank()], description: 'Param1 description.')]
     public function routeWithQueryParamPlainArrayRequirementsAction()
     {
     }
 
     /**
      * @ApiDoc()
-     * @QueryParam(name="param1", description="Param1 description.")
      */
+    #[QueryParam(name: 'param1', description: 'Param1 description.')]
     public function zActionWithRequirementParamNotSet()
     {
     }
