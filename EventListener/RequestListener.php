@@ -46,7 +46,7 @@ class RequestListener
      */
     public function onKernelRequest(RequestEvent $event)
     {
-        if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
+        if (HttpKernelInterface::MAIN_REQUEST !== $event->getRequestType()) {
             return;
         }
 
@@ -62,7 +62,7 @@ class RequestListener
         if (null !== $annotation = $this->extractor->get($controller, $route)) {
             $result = $this->formatter->formatOne($annotation);
 
-            $event->setResponse(new Response($result, 200, array(
+            $event->setResponse(new Response($result, Response::HTTP_OK, array(
                 'Content-Type' => 'text/html'
             )));
         }

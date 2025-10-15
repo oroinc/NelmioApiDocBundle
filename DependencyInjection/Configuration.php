@@ -16,7 +16,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 class Configuration implements ConfigurationInterface
 {
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('nelmio_api_doc');
 
@@ -24,7 +24,7 @@ class Configuration implements ConfigurationInterface
             $rootNode = $treeBuilder->getRootNode();
         } else {
             // symfony < 4.2 support
-            $rootNode = $treeBuilder->root('nelmio_api_doc');
+            $rootNode = $treeBuilder->getRootNode('nelmio_api_doc');
         }
 
         $rootNode

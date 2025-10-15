@@ -15,16 +15,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class Test
 {
-    /**
-     * @Assert\Length(min="foo");
-     * @Assert\NotBlank
-     * @Assert\Type("string")
-     */
+    #[Assert\Length(min: 'foo')] // ;
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
     public $a = 'nelmio';
 
-    /**
-     * @Assert\Type("DateTime");
-     */
+    #[Assert\Type('DateTime')] // ;
     public $b;
 
     public $c;

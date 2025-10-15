@@ -66,6 +66,7 @@ class CachingApiDocExtractor extends ApiDocExtractor
      * @param  string      $view View name
      * @return array|mixed
      */
+    #[\Override]
     public function all($view = ApiDoc::DEFAULT_VIEW)
     {
         $cache = $this->getViewCache($view);

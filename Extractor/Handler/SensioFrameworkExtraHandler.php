@@ -13,8 +13,8 @@ namespace Nelmio\ApiDocBundle\Extractor\Handler;
 
 use Nelmio\ApiDocBundle\Extractor\HandlerInterface;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class SensioFrameworkExtraHandler implements HandlerInterface

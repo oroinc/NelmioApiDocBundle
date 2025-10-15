@@ -22,7 +22,7 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 class CompoundType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('sub_form', LegacyFormHelper::isLegacy() ? new SimpleType() : __NAMESPACE__.'\SimpleType')
@@ -42,7 +42,8 @@ class CompoundType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    #[\Override]
+    public function getBlockPrefix(): string
     {
         return '';
     }

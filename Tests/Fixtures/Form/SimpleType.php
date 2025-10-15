@@ -22,7 +22,7 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 class SimpleType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('a', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\TextType'), array(
             'description' => 'Something that describes A.',
@@ -50,7 +50,8 @@ class SimpleType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    #[\Override]
+    public function getBlockPrefix(): string
     {
         return 'simple';
     }

@@ -34,9 +34,7 @@ class ValidationParserLegacy extends ValidationParser
         $this->factory = $factory;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function supports(array $input)
     {
         $className = $input['class'];
@@ -44,9 +42,7 @@ class ValidationParserLegacy extends ValidationParser
         return null !== $this->factory->getClassMetadata($className);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    #[\Override]
     public function parse(array $input)
     {
         $params = array();

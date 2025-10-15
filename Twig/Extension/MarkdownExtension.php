@@ -4,6 +4,7 @@ namespace Nelmio\ApiDocBundle\Twig\Extension;
 
 use Michelf\MarkdownExtra;
 use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
 class MarkdownExtension extends AbstractExtension
 {
@@ -17,10 +18,11 @@ class MarkdownExtension extends AbstractExtension
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function getFilters()
     {
         return array(
-            new \Twig\TwigFilter('extra_markdown', array($this, 'markdown'), array('is_safe' => array('html'))),
+            new TwigFilter('extra_markdown', $this->markdown(...), array('is_safe' => array('html'))),
         );
     }
 
