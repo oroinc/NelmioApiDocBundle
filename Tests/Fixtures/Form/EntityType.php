@@ -33,7 +33,7 @@ class EntityType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults(array(
             'data_class' => 'Nelmio\ApiDocBundle\Tests\Fixtures\Model\EntityTest',
@@ -42,7 +42,8 @@ class EntityType extends AbstractType
         return;
     }
 
-    public function getParent()
+    #[\Override]
+    public function getParent(): ?string
     {
         return LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\ChoiceType');
     }
@@ -59,7 +60,8 @@ class EntityType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    #[\Override]
+    public function getBlockPrefix(): string
     {
         return 'entity';
     }

@@ -18,6 +18,7 @@ class SimpleFormatter extends AbstractFormatter
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function formatOne(ApiDoc $annotation)
     {
         return $annotation->toArray();
@@ -26,6 +27,7 @@ class SimpleFormatter extends AbstractFormatter
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function format(array $collection)
     {
         $array = array();

@@ -22,7 +22,7 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 class RequiredType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('required_field', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\TextType'), array('required' => true));
     }
@@ -39,7 +39,8 @@ class RequiredType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    #[\Override]
+    public function getBlockPrefix(): string
     {
         return '';
     }

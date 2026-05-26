@@ -15,96 +15,60 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class ValidatorTest
 {
-    /**
-     * @Assert\Length(min=10);
-     */
+    #[Assert\Length(min: 10)] // ;
     public $length10 = 'validate this';
 
-    /**
-     * @Assert\Length(min=1, max=10)
-     */
+    #[Assert\Length(min: 1, max: 10)]
     public $length1to10;
 
-    /**
-     * @Assert\NotBlank()
-     */
+    #[Assert\NotBlank]
     public $notblank;
 
-    /**
-     * @Assert\NotNull()
-     */
+    #[Assert\NotNull]
     public $notnull;
 
-    /**
-     * @Assert\Type("DateTime");
-     */
+    #[Assert\Type('DateTime')] // ;
     public $type;
 
-    /**
-     * @Assert\Date();
-     */
+    #[Assert\Date]
     public $date;
 
-    /**
-     * @Assert\DateTime();
-     */
+    #[Assert\DateTime]
     public $dateTime;
 
-    /**
-     * @Assert\Time();
-     */
+    #[Assert\Time]
     public $time;
 
-    /**
-     * @Assert\Email()
-     */
+    #[Assert\Email]
     public $email;
 
-    /**
-     * @Assert\Url()
-     */
+    #[Assert\Url]
     public $url = 'https://github.com';
 
-    /**
-     * @Assert\Ip()
-     */
+    #[Assert\Ip]
     public $ip;
 
-    /**
-     * @Assert\Choice(choices={"a", "b"})
-     */
+    #[Assert\Choice(choices: ['a', 'b'])]
     public $singlechoice;
 
-    /**
-     * @Assert\Choice(choices={"x", "y", "z"}, multiple=true)
-     */
+    #[Assert\Choice(choices: ['x', 'y', 'z'], multiple: true)]
     public $multiplechoice;
 
-    /**
-     * @Assert\Choice(choices={"foo", "bar", "baz", "qux"}, multiple=true, min=2, max=3)
-     */
+    #[Assert\Choice(choices: ['foo', 'bar', 'baz', 'qux'], multiple: true, min: 2, max: 3)]
     public $multiplerangechoice;
 
-    /**
-     * @Assert\Regex(pattern="/^\d{1,4}\w{1,4}$/")
-     */
+    #[Assert\Regex(pattern: '/^\d{1,4}\w{1,4}$/')]
     public $regexmatch;
 
-    /**
-     * @Assert\Regex(pattern="/\d/", match=false)
-     */
+    #[Assert\Regex(pattern: '/\d/', match: false)]
     public $regexnomatch;
 
-    /**
-     * @Assert\NotNull()
-     * @Assert\Type("string")
-     * @Assert\Email()
-     */
+    #[Assert\NotNull]
+    #[Assert\Type('string')]
+    #[Assert\Email]
     public $multipleassertions;
 
-    /**
-     * @Assert\Url()
-     * @Assert\Length(min=10)
-     */
+    #[Assert\Url]
+    #[Assert\Length(min: 10)]
     public $multipleformats;
 }

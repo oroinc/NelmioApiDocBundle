@@ -19,10 +19,10 @@
         }
     ],
     "require": {
-        "php": "~8.0",
-        "symfony/twig-bundle": "~4.4|~5.3|~6.3",
-        "symfony/framework-bundle": "~4.4|~5.3|~6.3",
-        "symfony/console": "~4.4|~5.3|~6.3",
+        "php": "~8.4",
+        "symfony/twig-bundle": "~6.3|~7.3|~6.3",
+        "symfony/framework-bundle": "~6.3|~7.3|~6.3",
+        "symfony/console": "~6.3|~7.3|~6.3",
         "michelf/php-markdown": "~1.9"
     },
     "conflict": {

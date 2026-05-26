@@ -11,6 +11,8 @@
 
 namespace NelmioApiDocBundle\Tests\Controller;
 use Nelmio\ApiDocBundle\Tests\WebTestCase;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class ApiDocControllerTest
@@ -23,11 +25,11 @@ class ApiDocControllerTest extends WebTestCase
     public function testSwaggerDocResourceListRoute()
     {
         $client = static::createClient();
-        $client->request('GET', '/api-docs/');
+        $client->request(Request::METHOD_GET, '/api-docs/');
 
         $response = $client->getResponse();
 
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(Response::HTTP_OK, $response->getStatusCode());
         $this->assertEquals('application/json', $response->headers->get('Content-type'));
 
     }
@@ -48,21 +50,21 @@ class ApiDocControllerTest extends WebTestCase
     public function testApiDeclarationRoutes($resource)
     {
         $client = static::createClient();
-        $client->request('GET', '/api-docs/' . $resource);
+        $client->request(Request::METHOD_GET, '/api-docs/' . $resource);
 
         $response = $client->getResponse();
 
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(Response::HTTP_OK, $response->getStatusCode());
         $this->assertEquals('application/json', $response->headers->get('Content-type'));
     }
 
     public function testNonExistingApiDeclaration()
     {
         $client = static::createClient();
-        $client->request('GET', '/api-docs/santa');
+        $client->request(Request::METHOD_GET, '/api-docs/santa');
 
         $response = $client->getResponse();
-        $this->assertEquals(404, $response->getStatusCode());
+        $this->assertEquals(Response::HTTP_NOT_FOUND, $response->getStatusCode());
 
     }
 }

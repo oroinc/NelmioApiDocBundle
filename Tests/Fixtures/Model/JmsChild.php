@@ -16,7 +16,7 @@ use JMS\Serializer\Annotation as JMS;
 class JmsChild extends JmsTest
 {
     /**
-     * @JMS\Type("string");
+     * @JMS\Type("string")
      */
     public $child;
 

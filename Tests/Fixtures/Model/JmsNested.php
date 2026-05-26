@@ -17,13 +17,13 @@ class JmsNested
 {
 
     /**
-     * @JMS\Type("DateTime");
+     * @JMS\Type("DateTime")
      * @JMS\ReadOnly
      */
     public $foo;
 
     /**
-     * @JMS\Type("string");
+     * @JMS\Type("string")
      */
     public $bar = 'baz';
 
@@ -37,12 +37,12 @@ class JmsNested
     public $baz;
 
     /**
-     * @JMS\Type("Nelmio\ApiDocBundle\Tests\Fixtures\Model\JmsNested");
+     * @JMS\Type("Nelmio\ApiDocBundle\Tests\Fixtures\Model\JmsNested")
      */
     public $circular;
 
     /**
-     * @JMS\Type("Nelmio\ApiDocBundle\Tests\Fixtures\Model\JmsTest");
+     * @JMS\Type("Nelmio\ApiDocBundle\Tests\Fixtures\Model\JmsTest")
      */
     public $parent;
 

@@ -18,34 +18,34 @@ class JmsTest
     public $nothing;
 
     /**
-     * @JMS\Type("string");
+     * @JMS\Type("string")
      */
     public $foo;
 
     /**
-     * @JMS\Type("DateTime");
+     * @JMS\Type("DateTime")
      * @JMS\ReadOnly
      */
     public $bar;
 
     /**
-     * @JMS\Type("double");
+     * @JMS\Type("double")
      * @JMS\SerializedName("number");
      */
     public $baz;
 
     /**
-     * @JMS\Type("array");
+     * @JMS\Type("array")
      */
     public $arr;
 
     /**
-     * @JMS\Type("Nelmio\ApiDocBundle\Tests\Fixtures\Model\JmsNested");
+     * @JMS\Type("Nelmio\ApiDocBundle\Tests\Fixtures\Model\JmsNested")
      */
     public $nested;
 
     /**
-     * @JMS\Type("array<Nelmio\ApiDocBundle\Tests\Fixtures\Model\JmsNested>");
+     * @JMS\Type("array<Nelmio\ApiDocBundle\Tests\Fixtures\Model\JmsNested>")
      */
     public $nestedArray;
 

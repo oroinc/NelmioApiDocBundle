@@ -13,6 +13,7 @@ namespace Nelmio\ApiDocBundle\Command;
 
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Nelmio\ApiDocBundle\Extractor\ApiDocExtractor;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -20,10 +21,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Nelmio\ApiDocBundle\Formatter\FormatterInterface;
 
+#[AsCommand(name: 'api:doc:dump', description: 'Dumps API documentation in various formats')]
 class DumpCommand extends Command
 {
-    protected static $defaultName = 'api:doc:dump';
-
     /**
      * @var array
      */
@@ -74,7 +74,6 @@ class DumpCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Dumps API documentation in various formats')
             ->addOption(
                 'format', '', InputOption::VALUE_REQUIRED,
                 'Output format like: ' . implode(', ', $this->availableFormats),
@@ -85,7 +84,7 @@ class DumpCommand extends Command
             ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $format = $input->getOption('format');
         $view = $input->getOption('view');
@@ -120,6 +119,6 @@ class DumpCommand extends Command
             $output->writeln($formattedDoc, OutputInterface::OUTPUT_RAW);
         }
 
-        return 0;
+        return Command::SUCCESS;
     }
 }
