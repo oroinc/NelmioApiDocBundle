@@ -23,7 +23,7 @@ class NelmioApiDocExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $processor = new Processor();
         $configuration = new Configuration();
@@ -80,7 +80,6 @@ class NelmioApiDocExtension extends Extension
     /**
      * @return string
      */
-    #[\Override]
     public function getNamespace(): string
     {
         return 'http://nelmio.github.io/schema/dic/nelmio_api_doc';
@@ -89,7 +88,6 @@ class NelmioApiDocExtension extends Extension
     /**
      * @return string
      */
-    #[\Override]
     public function getXsdValidationBasePath(): string|false
     {
         return __DIR__ . '/../Resources/config/schema';

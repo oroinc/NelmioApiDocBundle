@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NelmioApiDocBundle\Tests\Parser;
+namespace Nelmio\ApiDocBundle\Tests\Parser;
 
 use Nelmio\ApiDocBundle\DataTypes;
 use Nelmio\ApiDocBundle\Form\Extension\DescriptionFormTypeExtension;
@@ -23,7 +23,7 @@ use Symfony\Component\Form\FormFactory;
 use Symfony\Component\Form\FormFactoryBuilder;
 use Symfony\Component\Form\ResolvedFormTypeFactory;
 
-class FormTypeParserTest extends \PHPUnit_Framework_TestCase
+class FormTypeParserTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @dataProvider dataTestParse
@@ -533,6 +533,7 @@ class FormTypeParserTest extends \PHPUnit_Framework_TestCase
                                             'required' => true,
                                             'description' => '',
                                             'readonly' => false,
+                                            'format' => DateTimeType::HTML5_FORMAT,
                                         ),
                                     'e' =>
                                         array (
@@ -543,6 +544,7 @@ class FormTypeParserTest extends \PHPUnit_Framework_TestCase
                                             'required' => true,
                                             'description' => '',
                                             'readonly' => false,
+                                            'format' => 'yyyy-MM-dd',
                                         ),
                                     'g' =>
                                         array (

@@ -1,4 +1,4 @@
-Fork of NelmioApiDocBundle that makes 2.x version compatible with Symfony 5
+Fork of NelmioApiDocBundle that makes 2.x version compatible with Symfony 7
 ===========================================================================
 
 [![Build

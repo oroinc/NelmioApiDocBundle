@@ -20,7 +20,7 @@ class ExtractorHandlerCompilerPass implements CompilerPassInterface
     /**
      * {@inheritDoc}
      */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $handlers = array();
         foreach ($container->findTaggedServiceIds('nelmio_api_doc.extractor.handler') as $id => $attributes) {

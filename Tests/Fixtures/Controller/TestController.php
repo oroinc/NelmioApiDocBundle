@@ -19,8 +19,6 @@ use Nelmio\ApiDocBundle\Tests\Fixtures\RequestParamHelper;
 use Nelmio\ApiDocBundle\Util\LegacyFormHelper;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints as Assert;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class TestController
 {
@@ -228,7 +226,6 @@ class TestController
     /**
      * @ApiDoc()
      */
-    #[Security("has_role('ROLE_USER')")]
     public function zSecuredAction()
     {
     }

@@ -157,7 +157,7 @@ class JmsMetadataParser implements ParserInterface, PostParserInterface
                 }
 
                 // we can use type property also for custom handlers, then we don't have here real class name
-                if (!class_exists($dataType['class'])) {
+                if (empty($dataType['class']) || !class_exists($dataType['class'])) {
                     continue;
                 }
 

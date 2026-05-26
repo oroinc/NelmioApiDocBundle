@@ -25,7 +25,7 @@ class AnnotationsProviderCompilerPass implements CompilerPassInterface
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $annotationsProviders = array();
         foreach ($container->findTaggedServiceIds('nelmio_api_doc.extractor.annotations_provider') as $id => $attributes) {

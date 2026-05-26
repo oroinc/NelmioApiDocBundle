@@ -1,32 +1,30 @@
 <?php
 
-use Nelmio\ApiDocBundle\Util\LegacyFormHelper;
-
 return array (
-  '/api/other-resources' =>
+  '/api/other-resources' => 
   array (
-    0 =>
+    0 => 
     array (
       'method' => 'GET',
       'uri' => '/api/other-resources.{_format}',
       'description' => 'List another resource.',
-      'requirements' =>
+      'requirements' => 
       array (
-        '_format' =>
+        '_format' => 
         array (
           'requirement' => 'json|xml|html',
           'dataType' => '',
           'description' => '',
         ),
       ),
-      'views' =>
+      'views' => 
       array (
         0 => 'default',
         1 => 'premium',
       ),
-      'response' =>
+      'response' => 
       array (
-        '' =>
+        '' => 
         array (
           'dataType' => 'array of objects (JmsTest)',
           'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsTest',
@@ -35,9 +33,9 @@ return array (
           'required' => true,
           'default' => true,
           'description' => '',
-          'children' =>
+          'children' => 
           array (
-            'foo' =>
+            'foo' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -49,7 +47,7 @@ return array (
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'bar' =>
+            'bar' => 
             array (
               'dataType' => 'DateTime',
               'actualType' => 'datetime',
@@ -61,7 +59,7 @@ return array (
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'number' =>
+            'number' => 
             array (
               'dataType' => 'double',
               'actualType' => 'float',
@@ -73,7 +71,7 @@ return array (
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'arr' =>
+            'arr' => 
             array (
               'dataType' => 'array',
               'actualType' => 'collection',
@@ -85,7 +83,7 @@ return array (
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'nested' =>
+            'nested' => 
             array (
               'dataType' => 'object (JmsNested)',
               'actualType' => 'model',
@@ -96,9 +94,9 @@ return array (
               'readonly' => false,
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
-              'children' =>
+              'children' => 
               array (
-                'foo' =>
+                'foo' => 
                 array (
                   'dataType' => 'DateTime',
                   'actualType' => 'datetime',
@@ -110,7 +108,7 @@ return array (
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'bar' =>
+                'bar' => 
                 array (
                   'dataType' => 'string',
                   'actualType' => 'string',
@@ -122,7 +120,7 @@ return array (
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'baz' =>
+                'baz' => 
                 array (
                   'dataType' => 'array of integers',
                   'actualType' => 'collection',
@@ -136,7 +134,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'circular' =>
+                'circular' => 
                 array (
                   'dataType' => 'object (JmsNested)',
                   'actualType' => 'model',
@@ -148,7 +146,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'parent' =>
+                'parent' => 
                 array (
                   'dataType' => 'object (JmsTest)',
                   'actualType' => 'model',
@@ -159,9 +157,9 @@ With multiple lines.',
                   'readonly' => false,
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
-                  'children' =>
+                  'children' => 
                   array (
-                    'foo' =>
+                    'foo' => 
                     array (
                       'dataType' => 'string',
                       'actualType' => 'string',
@@ -173,7 +171,7 @@ With multiple lines.',
                       'sinceVersion' => NULL,
                       'untilVersion' => NULL,
                     ),
-                    'bar' =>
+                    'bar' => 
                     array (
                       'dataType' => 'DateTime',
                       'actualType' => 'datetime',
@@ -185,7 +183,7 @@ With multiple lines.',
                       'sinceVersion' => NULL,
                       'untilVersion' => NULL,
                     ),
-                    'number' =>
+                    'number' => 
                     array (
                       'dataType' => 'double',
                       'actualType' => 'float',
@@ -197,7 +195,7 @@ With multiple lines.',
                       'sinceVersion' => NULL,
                       'untilVersion' => NULL,
                     ),
-                    'arr' =>
+                    'arr' => 
                     array (
                       'dataType' => 'array',
                       'actualType' => 'collection',
@@ -209,7 +207,7 @@ With multiple lines.',
                       'sinceVersion' => NULL,
                       'untilVersion' => NULL,
                     ),
-                    'nested' =>
+                    'nested' => 
                     array (
                       'dataType' => 'object (JmsNested)',
                       'actualType' => 'model',
@@ -221,7 +219,7 @@ With multiple lines.',
                       'sinceVersion' => NULL,
                       'untilVersion' => NULL,
                     ),
-                    'nested_array' =>
+                    'nested_array' => 
                     array (
                       'dataType' => 'array of objects (JmsNested)',
                       'actualType' => 'collection',
@@ -235,7 +233,7 @@ With multiple lines.',
                     ),
                   ),
                 ),
-                'since' =>
+                'since' => 
                 array (
                   'dataType' => 'string',
                   'actualType' => 'string',
@@ -247,7 +245,7 @@ With multiple lines.',
                   'sinceVersion' => '0.2',
                   'untilVersion' => NULL,
                 ),
-                'until' =>
+                'until' => 
                 array (
                   'dataType' => 'string',
                   'actualType' => 'string',
@@ -259,7 +257,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => '0.3',
                 ),
-                'since_and_until' =>
+                'since_and_until' => 
                 array (
                   'dataType' => 'string',
                   'actualType' => 'string',
@@ -273,7 +271,7 @@ With multiple lines.',
                 ),
               ),
             ),
-            'nested_array' =>
+            'nested_array' => 
             array (
               'dataType' => 'array of objects (JmsNested)',
               'actualType' => 'collection',
@@ -291,25 +289,37 @@ With multiple lines.',
       'resourceDescription' => 'Operations on another resource.',
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    1 =>
+    1 => 
     array (
-      'method' => 'PUT|PATCH',
+      'method' => 'PATCH',
       'uri' => '/api/other-resources/{id}.{_format}',
-      'description' => 'Update a resource bu ID.',
-      'requirements' =>
+      'parameters' => 
       array (
-        '_format' =>
+        'required_field' => 
+        array (
+          'dataType' => 'string',
+          'actualType' => 'string',
+          'subType' => NULL,
+          'default' => NULL,
+          'required' => false,
+          'description' => NULL,
+          'readonly' => false,
+        ),
+      ),
+      'requirements' => 
+      array (
+        '_format' => 
         array (
           'requirement' => 'json|xml|html',
           'dataType' => '',
           'description' => '',
         ),
-        'id' =>
+        'id' => 
         array (
           'requirement' => '',
           'dataType' => '',
@@ -318,37 +328,103 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
+      array (
+      ),
+      'deprecated' => false,
+    ),
+    2 => 
+    array (
+      'method' => 'POST',
+      'uri' => '/api/other-resources/{id}.{_format}',
+      'parameters' => 
+      array (
+        'required_field' => 
+        array (
+          'dataType' => 'string',
+          'actualType' => 'string',
+          'subType' => NULL,
+          'default' => NULL,
+          'required' => true,
+          'description' => NULL,
+          'readonly' => false,
+        ),
+      ),
+      'requirements' => 
+      array (
+        '_format' => 
+        array (
+          'requirement' => 'json|xml|html',
+          'dataType' => '',
+          'description' => '',
+        ),
+        'id' => 
+        array (
+          'requirement' => '',
+          'dataType' => '',
+          'description' => '',
+        ),
+      ),
+      'https' => false,
+      'authentication' => false,
+      'authenticationRoles' => 
+      array (
+      ),
+      'deprecated' => false,
+    ),
+    3 => 
+    array (
+      'method' => 'PUT|PATCH',
+      'uri' => '/api/other-resources/{id}.{_format}',
+      'description' => 'Update a resource bu ID.',
+      'requirements' => 
+      array (
+        '_format' => 
+        array (
+          'requirement' => 'json|xml|html',
+          'dataType' => '',
+          'description' => '',
+        ),
+        'id' => 
+        array (
+          'requirement' => '',
+          'dataType' => '',
+          'description' => '',
+        ),
+      ),
+      'https' => false,
+      'authentication' => false,
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
   ),
-  '/api/resources' =>
+  '/api/resources' => 
   array (
-    0 =>
+    0 => 
     array (
       'method' => 'GET',
       'uri' => '/api/resources.{_format}',
       'description' => 'List resources.',
-      'requirements' =>
+      'requirements' => 
       array (
-        '_format' =>
+        '_format' => 
         array (
           'requirement' => 'json|xml|html',
           'dataType' => '',
           'description' => '',
         ),
       ),
-      'views' =>
+      'views' => 
       array (
         0 => 'test',
         1 => 'premium',
         2 => 'default',
       ),
-      'response' =>
+      'response' => 
       array (
-        'tests' =>
+        'tests' => 
         array (
           'dataType' => 'array of objects (Test)',
           'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\Test',
@@ -357,19 +433,19 @@ With multiple lines.',
           'required' => true,
           'default' => true,
           'description' => '',
-          'children' =>
+          'children' => 
           array (
-            'a' =>
+            'a' => 
             array (
               'default' => 'nelmio',
               'actualType' => 'string',
               'subType' => NULL,
-              'format' => '{length: min: foo}, {not blank}',
+              'format' => '{length: min: 3}, {not blank}',
               'required' => true,
               'dataType' => 'string',
               'readonly' => NULL,
             ),
-            'b' =>
+            'b' => 
             array (
               'default' => NULL,
               'actualType' => 'datetime',
@@ -381,13 +457,13 @@ With multiple lines.',
           ),
         ),
       ),
-      'statusCodes' =>
+      'statusCodes' => 
       array (
-        200 =>
+        200 => 
         array (
           0 => 'Returned on success.',
         ),
-        404 =>
+        404 => 
         array (
           0 => 'Returned if resource cannot be found.',
         ),
@@ -395,19 +471,19 @@ With multiple lines.',
       'resourceDescription' => 'Operations on resource.',
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    1 =>
+    1 => 
     array (
       'method' => 'POST',
       'uri' => '/api/resources.{_format}',
       'description' => 'Create a new resource.',
-      'parameters' =>
+      'parameters' => 
       array (
-        'a' =>
+        'a' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
@@ -417,7 +493,7 @@ With multiple lines.',
           'description' => 'Something that describes A.',
           'readonly' => false,
         ),
-        'b' =>
+        'b' => 
         array (
           'dataType' => 'float',
           'actualType' => 'float',
@@ -427,7 +503,7 @@ With multiple lines.',
           'description' => NULL,
           'readonly' => false,
         ),
-        'c' =>
+        'c' => 
         array (
           'dataType' => 'choice',
           'actualType' => 'choice',
@@ -438,7 +514,7 @@ With multiple lines.',
           'readonly' => false,
           'format' => '{"x":"X","y":"Y","z":"Z"}',
         ),
-        'd' =>
+        'd' => 
         array (
           'dataType' => 'datetime',
           'actualType' => 'datetime',
@@ -447,8 +523,9 @@ With multiple lines.',
           'required' => true,
           'description' => NULL,
           'readonly' => false,
+          'format' => 'yyyy-MM-dd\'T\'HH:mm:ss',
         ),
-        'e' =>
+        'e' => 
         array (
           'dataType' => 'date',
           'actualType' => 'date',
@@ -457,8 +534,9 @@ With multiple lines.',
           'required' => true,
           'description' => NULL,
           'readonly' => false,
+          'format' => 'yyyy-MM-dd',
         ),
-        'g' =>
+        'g' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
@@ -469,23 +547,23 @@ With multiple lines.',
           'readonly' => false,
         ),
       ),
-      'requirements' =>
+      'requirements' => 
       array (
-        '_format' =>
+        '_format' => 
         array (
           'requirement' => 'json|xml|html',
           'dataType' => '',
           'description' => '',
         ),
       ),
-      'views' =>
+      'views' => 
       array (
         0 => 'default',
         1 => 'premium',
       ),
-      'response' =>
+      'response' => 
       array (
-        'foo' =>
+        'foo' => 
         array (
           'dataType' => 'DateTime',
           'actualType' => 'datetime',
@@ -497,7 +575,7 @@ With multiple lines.',
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
         ),
-        'bar' =>
+        'bar' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
@@ -509,7 +587,7 @@ With multiple lines.',
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
         ),
-        'baz' =>
+        'baz' => 
         array (
           'dataType' => 'array of integers',
           'actualType' => 'collection',
@@ -523,7 +601,7 @@ With multiple lines.',
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
         ),
-        'circular' =>
+        'circular' => 
         array (
           'dataType' => 'object (JmsNested)',
           'actualType' => 'model',
@@ -534,9 +612,9 @@ With multiple lines.',
           'readonly' => false,
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
-          'children' =>
+          'children' => 
           array (
-            'foo' =>
+            'foo' => 
             array (
               'dataType' => 'DateTime',
               'actualType' => 'datetime',
@@ -548,7 +626,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'bar' =>
+            'bar' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -560,7 +638,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'baz' =>
+            'baz' => 
             array (
               'dataType' => 'array of integers',
               'actualType' => 'collection',
@@ -574,7 +652,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'circular' =>
+            'circular' => 
             array (
               'dataType' => 'object (JmsNested)',
               'actualType' => 'model',
@@ -586,7 +664,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'parent' =>
+            'parent' => 
             array (
               'dataType' => 'object (JmsTest)',
               'actualType' => 'model',
@@ -597,9 +675,9 @@ With multiple lines.',
               'readonly' => false,
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
-              'children' =>
+              'children' => 
               array (
-                'foo' =>
+                'foo' => 
                 array (
                   'dataType' => 'string',
                   'actualType' => 'string',
@@ -611,7 +689,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'bar' =>
+                'bar' => 
                 array (
                   'dataType' => 'DateTime',
                   'actualType' => 'datetime',
@@ -623,7 +701,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'number' =>
+                'number' => 
                 array (
                   'dataType' => 'double',
                   'actualType' => 'float',
@@ -635,7 +713,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'arr' =>
+                'arr' => 
                 array (
                   'dataType' => 'array',
                   'actualType' => 'collection',
@@ -647,7 +725,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'nested' =>
+                'nested' => 
                 array (
                   'dataType' => 'object (JmsNested)',
                   'actualType' => 'model',
@@ -659,7 +737,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'nested_array' =>
+                'nested_array' => 
                 array (
                   'dataType' => 'array of objects (JmsNested)',
                   'actualType' => 'collection',
@@ -673,7 +751,7 @@ With multiple lines.',
                 ),
               ),
             ),
-            'since' =>
+            'since' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -685,7 +763,7 @@ With multiple lines.',
               'sinceVersion' => '0.2',
               'untilVersion' => NULL,
             ),
-            'until' =>
+            'until' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -697,7 +775,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => '0.3',
             ),
-            'since_and_until' =>
+            'since_and_until' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -711,7 +789,7 @@ With multiple lines.',
             ),
           ),
         ),
-        'parent' =>
+        'parent' => 
         array (
           'dataType' => 'object (JmsTest)',
           'actualType' => 'model',
@@ -722,9 +800,9 @@ With multiple lines.',
           'readonly' => false,
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
-          'children' =>
+          'children' => 
           array (
-            'foo' =>
+            'foo' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -736,7 +814,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'bar' =>
+            'bar' => 
             array (
               'dataType' => 'DateTime',
               'actualType' => 'datetime',
@@ -748,7 +826,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'number' =>
+            'number' => 
             array (
               'dataType' => 'double',
               'actualType' => 'float',
@@ -760,7 +838,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'arr' =>
+            'arr' => 
             array (
               'dataType' => 'array',
               'actualType' => 'collection',
@@ -772,7 +850,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'nested' =>
+            'nested' => 
             array (
               'dataType' => 'object (JmsNested)',
               'actualType' => 'model',
@@ -784,7 +862,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'nested_array' =>
+            'nested_array' => 
             array (
               'dataType' => 'array of objects (JmsNested)',
               'actualType' => 'collection',
@@ -798,7 +876,7 @@ With multiple lines.',
             ),
           ),
         ),
-        'since' =>
+        'since' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
@@ -810,7 +888,7 @@ With multiple lines.',
           'sinceVersion' => '0.2',
           'untilVersion' => NULL,
         ),
-        'until' =>
+        'until' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
@@ -822,7 +900,7 @@ With multiple lines.',
           'sinceVersion' => NULL,
           'untilVersion' => '0.3',
         ),
-        'since_and_until' =>
+        'since_and_until' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
@@ -837,25 +915,25 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    2 =>
+    2 => 
     array (
       'method' => 'DELETE',
       'uri' => '/api/resources/{id}.{_format}',
       'description' => 'Delete a resource by ID.',
-      'requirements' =>
+      'requirements' => 
       array (
-        '_format' =>
+        '_format' => 
         array (
           'requirement' => 'json|xml|html',
           'dataType' => '',
           'description' => '',
         ),
-        'id' =>
+        'id' => 
         array (
           'requirement' => '',
           'dataType' => '',
@@ -864,25 +942,25 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    3 =>
+    3 => 
     array (
       'method' => 'GET',
       'uri' => '/api/resources/{id}.{_format}',
       'description' => 'Retrieve a resource by ID.',
-      'requirements' =>
+      'requirements' => 
       array (
-        '_format' =>
+        '_format' => 
         array (
           'requirement' => 'json|xml|html',
           'dataType' => '',
           'description' => '',
         ),
-        'id' =>
+        'id' => 
         array (
           'requirement' => '',
           'dataType' => '',
@@ -891,38 +969,38 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
   ),
-  '/tests' =>
+  '/tests' => 
   array (
-    0 =>
+    0 => 
     array (
       'method' => 'GET',
       'uri' => '/tests.{_format}',
       'description' => 'index action',
-      'filters' =>
+      'filters' => 
       array (
-        'a' =>
+        'a' => 
         array (
           'dataType' => 'integer',
         ),
-        'b' =>
+        'b' => 
         array (
           'dataType' => 'string',
-          'arbitrary' =>
+          'arbitrary' => 
           array (
             0 => 'arg1',
             1 => 'arg2',
           ),
         ),
       ),
-      'requirements' =>
+      'requirements' => 
       array (
-        '_format' =>
+        '_format' => 
         array (
           'requirement' => '',
           'dataType' => '',
@@ -931,57 +1009,20 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    1 =>
-    array (
-      'method' => 'GET',
-      'uri' => '/tests.{_format}',
-      'description' => 'index action',
-      'filters' =>
-      array (
-        'a' =>
-        array (
-          'dataType' => 'integer',
-        ),
-        'b' =>
-        array (
-          'dataType' => 'string',
-          'arbitrary' =>
-          array (
-            0 => 'arg1',
-            1 => 'arg2',
-          ),
-        ),
-      ),
-      'requirements' =>
-      array (
-        '_format' =>
-        array (
-          'requirement' => '',
-          'dataType' => '',
-          'description' => '',
-        ),
-      ),
-      'https' => false,
-      'authentication' => false,
-      'authenticationRoles' =>
-      array (
-      ),
-      'deprecated' => false,
-    ),
-    2 =>
+    1 => 
     array (
       'method' => 'POST',
       'uri' => '/tests.{_format}',
       'host' => 'api.test.dev',
       'description' => 'create test',
-      'parameters' =>
+      'parameters' => 
       array (
-        'a' =>
+        'a' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
@@ -991,17 +1032,17 @@ With multiple lines.',
           'description' => 'A nice description',
           'readonly' => false,
         ),
-        'b' =>
+        'b' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
           'subType' => NULL,
           'default' => NULL,
-          'required' => false,
+          'required' => true,
           'description' => NULL,
           'readonly' => false,
         ),
-        'c' =>
+        'c' => 
         array (
           'dataType' => 'boolean',
           'actualType' => 'boolean',
@@ -1011,7 +1052,7 @@ With multiple lines.',
           'description' => NULL,
           'readonly' => false,
         ),
-        'd' =>
+        'd' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
@@ -1022,168 +1063,96 @@ With multiple lines.',
           'readonly' => false,
         ),
       ),
-      'requirements' =>
+      'requirements' => 
       array (
-        '_format' =>
+        '_format' => 
         array (
           'requirement' => '',
           'dataType' => '',
           'description' => '',
         ),
       ),
-      'views' =>
+      'views' => 
       array (
         0 => 'default',
         1 => 'premium',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
-      array (
-      ),
-      'deprecated' => false,
-    ),
-    3 =>
-    array (
-      'method' => 'POST',
-      'uri' => '/tests.{_format}',
-      'host' => 'api.test.dev',
-      'description' => 'create test',
-      'parameters' =>
-      array (
-        'a' =>
-        array (
-          'dataType' => 'string',
-          'actualType' => 'string',
-          'subType' => NULL,
-          'default' => NULL,
-          'required' => true,
-          'description' => 'A nice description',
-          'readonly' => false,
-        ),
-        'b' =>
-        array (
-          'dataType' => 'string',
-          'actualType' => 'string',
-          'subType' => NULL,
-          'default' => NULL,
-          'required' => false,
-          'description' => NULL,
-          'readonly' => false,
-        ),
-        'c' =>
-        array (
-          'dataType' => 'boolean',
-          'actualType' => 'boolean',
-          'subType' => NULL,
-          'default' => false,
-          'required' => true,
-          'description' => NULL,
-          'readonly' => false,
-        ),
-        'd' =>
-        array (
-          'dataType' => 'string',
-          'actualType' => 'string',
-          'subType' => NULL,
-          'default' => 'DefaultTest',
-          'required' => true,
-          'description' => NULL,
-          'readonly' => false,
-        ),
-      ),
-      'requirements' =>
-      array (
-        '_format' =>
-        array (
-          'requirement' => '',
-          'dataType' => '',
-          'description' => '',
-        ),
-      ),
-      'views' =>
-      array (
-        0 => 'default',
-        1 => 'premium',
-      ),
-      'https' => false,
-      'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
   ),
-  '/tests2' =>
+  '/tests2' => 
   array (
-    0 =>
+    0 => 
     array (
       'method' => 'POST',
       'uri' => '/tests2.{_format}',
       'description' => 'post test 2',
-      'requirements' =>
+      'requirements' => 
       array (
-        '_format' =>
+        '_format' => 
         array (
           'requirement' => '',
           'dataType' => '',
           'description' => '',
         ),
       ),
-      'views' =>
+      'views' => 
       array (
         0 => 'default',
         1 => 'premium',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
   ),
-  'TestResource' =>
+  'TestResource' => 
   array (
-    0 =>
+    0 => 
     array (
       'method' => 'ANY',
       'uri' => '/named-resource',
-      'views' =>
+      'views' => 
       array (
         0 => 'default',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
   ),
-  'others' =>
+  'others' => 
   array (
-    0 =>
+    0 => 
     array (
       'method' => 'POST',
       'uri' => '/another-post',
       'description' => 'create another test',
-      'parameters' =>
+      'parameters' => 
       array (
-        'dependency_type' =>
+        'dependency_type' => 
         array (
           'required' => true,
           'readonly' => false,
           'description' => '',
           'default' => NULL,
-          'dataType' => 'object ('.
-              (LegacyFormHelper::isLegacy() ? 'dependency_type' : 'DependencyType')
-          .')',
+          'dataType' => 'object (DependencyType)',
           'actualType' => 'model',
-          'subType' => LegacyFormHelper::isLegacy() ? 'dependency_type' : 'Nelmio\ApiDocBundle\Tests\Fixtures\Form\DependencyType',
-          'children' =>
+          'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Form\\DependencyType',
+          'children' => 
           array (
-            'a' =>
+            'a' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -1196,38 +1165,26 @@ With multiple lines.',
           ),
         ),
       ),
-      'views' =>
+      'views' => 
       array (
         0 => 'default',
         1 => 'test',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    1 =>
-    array (
-      'method' => 'ANY',
-      'uri' => '/any',
-      'description' => 'Action without HTTP verb',
-      'https' => false,
-      'authentication' => false,
-      'authenticationRoles' =>
-      array (
-      ),
-      'deprecated' => false,
-    ),
-    2 =>
+    1 => 
     array (
       'method' => 'ANY',
       'uri' => '/any/{foo}',
       'description' => 'Action without HTTP verb',
-      'requirements' =>
+      'requirements' => 
       array (
-        'foo' =>
+        'foo' => 
         array (
           'requirement' => '',
           'dataType' => '',
@@ -1236,32 +1193,18 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    3 =>
+    2 => 
     array (
-      'method' => 'ANY',
-      'uri' => '/authenticated',
-      'https' => false,
-      'authentication' => true,
-      'authenticationRoles' =>
+      'method' => 'POST|PUT',
+      'uri' => '/api/overrride/properties',
+      'parameters' => 
       array (
-        0 => 'ROLE_USER',
-        1 => 'ROLE_FOOBAR',
-      ),
-      'deprecated' => false,
-    ),
-    4 =>
-    array (
-      'method' => 'POST',
-      'uri' => '/jms-input-test',
-      'description' => 'Testing JMS',
-      'parameters' =>
-      array (
-        'foo' =>
+        'foo' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
@@ -1273,7 +1216,7 @@ With multiple lines.',
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
         ),
-        'bar' =>
+        'bar' => 
         array (
           'dataType' => 'DateTime',
           'actualType' => 'datetime',
@@ -1285,21 +1228,21 @@ With multiple lines.',
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
         ),
-        'number' =>
+        'number' => 
         array (
-          'dataType' => 'double',
-          'actualType' => 'float',
+          'dataType' => 'integer',
+          'actualType' => 'string',
           'subType' => NULL,
-          'required' => false,
+          'required' => true,
           'default' => NULL,
-          'description' => '',
+          'description' => 'This is the new description',
           'readonly' => false,
-          'sinceVersion' => NULL,
-          'untilVersion' => NULL,
+          'sinceVersion' => 'v3.0',
+          'untilVersion' => 'v4.0',
         ),
-        'arr' =>
+        'arr' => 
         array (
-          'dataType' => 'array',
+          'dataType' => 'object (ArrayCollection)',
           'actualType' => 'collection',
           'subType' => NULL,
           'required' => false,
@@ -1309,7 +1252,7 @@ With multiple lines.',
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
         ),
-        'nested' =>
+        'nested' => 
         array (
           'dataType' => 'object (JmsNested)',
           'actualType' => 'model',
@@ -1320,9 +1263,9 @@ With multiple lines.',
           'readonly' => false,
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
-          'children' =>
+          'children' => 
           array (
-            'foo' =>
+            'foo' => 
             array (
               'dataType' => 'DateTime',
               'actualType' => 'datetime',
@@ -1334,9 +1277,9 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'bar' =>
+            'bar' => 
             array (
-              'dataType' => 'string',
+              'dataType' => 'integer',
               'actualType' => 'string',
               'subType' => NULL,
               'required' => false,
@@ -1345,8 +1288,9 @@ With multiple lines.',
               'readonly' => false,
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
+              'format' => 'd+',
             ),
-            'baz' =>
+            'baz' => 
             array (
               'dataType' => 'array of integers',
               'actualType' => 'collection',
@@ -1360,7 +1304,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'circular' =>
+            'circular' => 
             array (
               'dataType' => 'object (JmsNested)',
               'actualType' => 'model',
@@ -1372,7 +1316,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'parent' =>
+            'parent' => 
             array (
               'dataType' => 'object (JmsTest)',
               'actualType' => 'model',
@@ -1383,9 +1327,9 @@ With multiple lines.',
               'readonly' => false,
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
-              'children' =>
+              'children' => 
               array (
-                'foo' =>
+                'foo' => 
                 array (
                   'dataType' => 'string',
                   'actualType' => 'string',
@@ -1397,7 +1341,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'bar' =>
+                'bar' => 
                 array (
                   'dataType' => 'DateTime',
                   'actualType' => 'datetime',
@@ -1409,7 +1353,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'number' =>
+                'number' => 
                 array (
                   'dataType' => 'double',
                   'actualType' => 'float',
@@ -1421,7 +1365,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'arr' =>
+                'arr' => 
                 array (
                   'dataType' => 'array',
                   'actualType' => 'collection',
@@ -1433,7 +1377,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'nested' =>
+                'nested' => 
                 array (
                   'dataType' => 'object (JmsNested)',
                   'actualType' => 'model',
@@ -1445,7 +1389,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'nested_array' =>
+                'nested_array' => 
                 array (
                   'dataType' => 'array of objects (JmsNested)',
                   'actualType' => 'collection',
@@ -1459,7 +1403,7 @@ With multiple lines.',
                 ),
               ),
             ),
-            'since' =>
+            'since' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -1471,7 +1415,7 @@ With multiple lines.',
               'sinceVersion' => '0.2',
               'untilVersion' => NULL,
             ),
-            'until' =>
+            'until' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -1483,7 +1427,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => '0.3',
             ),
-            'since_and_until' =>
+            'since_and_until' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -1497,7 +1441,258 @@ With multiple lines.',
             ),
           ),
         ),
-        'nested_array' =>
+        'nested_array' => 
+        array (
+          'dataType' => 'array of objects (JmsNested)',
+          'actualType' => 'collection',
+          'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+      ),
+      'response' => 
+      array (
+        'foo' => 
+        array (
+          'dataType' => 'string',
+          'actualType' => 'string',
+          'subType' => NULL,
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+        'bar' => 
+        array (
+          'dataType' => 'DateTime',
+          'actualType' => 'datetime',
+          'subType' => NULL,
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => true,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+        'number' => 
+        array (
+          'dataType' => 'double',
+          'actualType' => 'float',
+          'subType' => NULL,
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+        'arr' => 
+        array (
+          'dataType' => 'array',
+          'actualType' => 'collection',
+          'subType' => NULL,
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+        'nested' => 
+        array (
+          'dataType' => 'object (JmsNested)',
+          'actualType' => 'model',
+          'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+          'children' => 
+          array (
+            'foo' => 
+            array (
+              'dataType' => 'DateTime',
+              'actualType' => 'datetime',
+              'subType' => NULL,
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => true,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+            ),
+            'bar' => 
+            array (
+              'dataType' => 'string',
+              'actualType' => 'string',
+              'subType' => NULL,
+              'required' => false,
+              'default' => 'baz',
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+            ),
+            'baz' => 
+            array (
+              'dataType' => 'array of integers',
+              'actualType' => 'collection',
+              'subType' => 'integer',
+              'required' => false,
+              'default' => NULL,
+              'description' => 'Epic description.
+
+With multiple lines.',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+            ),
+            'circular' => 
+            array (
+              'dataType' => 'object (JmsNested)',
+              'actualType' => 'model',
+              'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+            ),
+            'parent' => 
+            array (
+              'dataType' => 'object (JmsTest)',
+              'actualType' => 'model',
+              'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsTest',
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+              'children' => 
+              array (
+                'foo' => 
+                array (
+                  'dataType' => 'string',
+                  'actualType' => 'string',
+                  'subType' => NULL,
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'bar' => 
+                array (
+                  'dataType' => 'DateTime',
+                  'actualType' => 'datetime',
+                  'subType' => NULL,
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => true,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'number' => 
+                array (
+                  'dataType' => 'double',
+                  'actualType' => 'float',
+                  'subType' => NULL,
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'arr' => 
+                array (
+                  'dataType' => 'array',
+                  'actualType' => 'collection',
+                  'subType' => NULL,
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'nested' => 
+                array (
+                  'dataType' => 'object (JmsNested)',
+                  'actualType' => 'model',
+                  'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'nested_array' => 
+                array (
+                  'dataType' => 'array of objects (JmsNested)',
+                  'actualType' => 'collection',
+                  'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+              ),
+            ),
+            'since' => 
+            array (
+              'dataType' => 'string',
+              'actualType' => 'string',
+              'subType' => NULL,
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => '0.2',
+              'untilVersion' => NULL,
+            ),
+            'until' => 
+            array (
+              'dataType' => 'string',
+              'actualType' => 'string',
+              'subType' => NULL,
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => '0.3',
+            ),
+            'since_and_until' => 
+            array (
+              'dataType' => 'string',
+              'actualType' => 'string',
+              'subType' => NULL,
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => '0.4',
+              'untilVersion' => '0.5',
+            ),
+          ),
+        ),
+        'nested_array' => 
         array (
           'dataType' => 'array of objects (JmsNested)',
           'actualType' => 'collection',
@@ -1512,32 +1707,306 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    5 =>
+    3 => 
+    array (
+      'method' => 'ANY',
+      'uri' => '/authenticated',
+      'https' => false,
+      'authentication' => true,
+      'authenticationRoles' => 
+      array (
+        0 => 'ROLE_USER',
+        1 => 'ROLE_FOOBAR',
+      ),
+      'deprecated' => false,
+    ),
+    4 => 
+    array (
+      'method' => 'POST',
+      'uri' => '/jms-input-test',
+      'description' => 'Testing JMS',
+      'parameters' => 
+      array (
+        'foo' => 
+        array (
+          'dataType' => 'string',
+          'actualType' => 'string',
+          'subType' => NULL,
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+        'bar' => 
+        array (
+          'dataType' => 'DateTime',
+          'actualType' => 'datetime',
+          'subType' => NULL,
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => true,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+        'number' => 
+        array (
+          'dataType' => 'double',
+          'actualType' => 'float',
+          'subType' => NULL,
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+        'arr' => 
+        array (
+          'dataType' => 'array',
+          'actualType' => 'collection',
+          'subType' => NULL,
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+        'nested' => 
+        array (
+          'dataType' => 'object (JmsNested)',
+          'actualType' => 'model',
+          'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+          'children' => 
+          array (
+            'foo' => 
+            array (
+              'dataType' => 'DateTime',
+              'actualType' => 'datetime',
+              'subType' => NULL,
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => true,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+            ),
+            'bar' => 
+            array (
+              'dataType' => 'string',
+              'actualType' => 'string',
+              'subType' => NULL,
+              'required' => false,
+              'default' => 'baz',
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+            ),
+            'baz' => 
+            array (
+              'dataType' => 'array of integers',
+              'actualType' => 'collection',
+              'subType' => 'integer',
+              'required' => false,
+              'default' => NULL,
+              'description' => 'Epic description.
+
+With multiple lines.',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+            ),
+            'circular' => 
+            array (
+              'dataType' => 'object (JmsNested)',
+              'actualType' => 'model',
+              'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+            ),
+            'parent' => 
+            array (
+              'dataType' => 'object (JmsTest)',
+              'actualType' => 'model',
+              'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsTest',
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+              'children' => 
+              array (
+                'foo' => 
+                array (
+                  'dataType' => 'string',
+                  'actualType' => 'string',
+                  'subType' => NULL,
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'bar' => 
+                array (
+                  'dataType' => 'DateTime',
+                  'actualType' => 'datetime',
+                  'subType' => NULL,
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => true,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'number' => 
+                array (
+                  'dataType' => 'double',
+                  'actualType' => 'float',
+                  'subType' => NULL,
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'arr' => 
+                array (
+                  'dataType' => 'array',
+                  'actualType' => 'collection',
+                  'subType' => NULL,
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'nested' => 
+                array (
+                  'dataType' => 'object (JmsNested)',
+                  'actualType' => 'model',
+                  'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'nested_array' => 
+                array (
+                  'dataType' => 'array of objects (JmsNested)',
+                  'actualType' => 'collection',
+                  'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+              ),
+            ),
+            'since' => 
+            array (
+              'dataType' => 'string',
+              'actualType' => 'string',
+              'subType' => NULL,
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => '0.2',
+              'untilVersion' => NULL,
+            ),
+            'until' => 
+            array (
+              'dataType' => 'string',
+              'actualType' => 'string',
+              'subType' => NULL,
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => '0.3',
+            ),
+            'since_and_until' => 
+            array (
+              'dataType' => 'string',
+              'actualType' => 'string',
+              'subType' => NULL,
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => '0.4',
+              'untilVersion' => '0.5',
+            ),
+          ),
+        ),
+        'nested_array' => 
+        array (
+          'dataType' => 'array of objects (JmsNested)',
+          'actualType' => 'collection',
+          'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+      ),
+      'https' => false,
+      'authentication' => false,
+      'authenticationRoles' => 
+      array (
+      ),
+      'deprecated' => false,
+    ),
+    5 => 
     array (
       'method' => 'GET',
       'uri' => '/jms-return-test',
       'description' => 'Testing return',
-      'response' =>
+      'response' => 
       array (
-        'dependency_type' =>
+        'dependency_type' => 
         array (
           'required' => true,
           'readonly' => false,
           'description' => '',
           'default' => NULL,
-          'dataType' => 'object ('.
-              (LegacyFormHelper::isLegacy() ? 'dependency_type' : 'DependencyType')
-          .')',
+          'dataType' => 'object (DependencyType)',
           'actualType' => 'model',
-          'subType' => LegacyFormHelper::isLegacy() ? 'dependency_type' : 'Nelmio\ApiDocBundle\Tests\Fixtures\Form\DependencyType',
-          'children' =>
+          'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Form\\DependencyType',
+          'children' => 
           array (
-            'a' =>
+            'a' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -1552,39 +2021,39 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    6 =>
+    6 => 
     array (
       'method' => 'ANY',
       'uri' => '/my-commented/{id}/{page}/{paramType}/{param}',
       'description' => 'This method is useful to test if the getDocComment works.',
       'documentation' => 'This method is useful to test if the getDocComment works.
 And, it supports multilines until the first \'@\' char.',
-      'requirements' =>
+      'requirements' => 
       array (
-        'id' =>
+        'id' => 
         array (
           'dataType' => 'int',
           'description' => 'A nice comment',
           'requirement' => '',
         ),
-        'page' =>
+        'page' => 
         array (
           'dataType' => 'int',
           'description' => '',
           'requirement' => '',
         ),
-        'paramType' =>
+        'paramType' => 
         array (
           'dataType' => 'int',
           'description' => 'The param type',
           'requirement' => '',
         ),
-        'param' =>
+        'param' => 
         array (
           'dataType' => 'int',
           'description' => 'The param id',
@@ -1593,18 +2062,18 @@ And, it supports multilines until the first \'@\' char.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    7 =>
+    7 => 
     array (
       'method' => 'ANY',
-      'uri' => '/return-nested-output',
-      'response' =>
+      'uri' => '/return-nested-extend-output',
+      'response' => 
       array (
-        'foo' =>
+        'foo' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
@@ -1616,7 +2085,7 @@ And, it supports multilines until the first \'@\' char.',
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
         ),
-        'bar' =>
+        'bar' => 
         array (
           'dataType' => 'DateTime',
           'actualType' => 'datetime',
@@ -1628,7 +2097,7 @@ And, it supports multilines until the first \'@\' char.',
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
         ),
-        'number' =>
+        'number' => 
         array (
           'dataType' => 'double',
           'actualType' => 'float',
@@ -1640,7 +2109,7 @@ And, it supports multilines until the first \'@\' char.',
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
         ),
-        'arr' =>
+        'arr' => 
         array (
           'dataType' => 'array',
           'actualType' => 'collection',
@@ -1652,7 +2121,7 @@ And, it supports multilines until the first \'@\' char.',
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
         ),
-        'nested' =>
+        'nested' => 
         array (
           'dataType' => 'object (JmsNested)',
           'actualType' => 'model',
@@ -1663,9 +2132,9 @@ And, it supports multilines until the first \'@\' char.',
           'readonly' => false,
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
-          'children' =>
+          'children' => 
           array (
-            'foo' =>
+            'foo' => 
             array (
               'dataType' => 'DateTime',
               'actualType' => 'datetime',
@@ -1677,7 +2146,7 @@ And, it supports multilines until the first \'@\' char.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'bar' =>
+            'bar' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -1689,7 +2158,7 @@ And, it supports multilines until the first \'@\' char.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'baz' =>
+            'baz' => 
             array (
               'dataType' => 'array of integers',
               'actualType' => 'collection',
@@ -1703,7 +2172,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'circular' =>
+            'circular' => 
             array (
               'dataType' => 'object (JmsNested)',
               'actualType' => 'model',
@@ -1715,7 +2184,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
             ),
-            'parent' =>
+            'parent' => 
             array (
               'dataType' => 'object (JmsTest)',
               'actualType' => 'model',
@@ -1726,9 +2195,9 @@ With multiple lines.',
               'readonly' => false,
               'sinceVersion' => NULL,
               'untilVersion' => NULL,
-              'children' =>
+              'children' => 
               array (
-                'foo' =>
+                'foo' => 
                 array (
                   'dataType' => 'string',
                   'actualType' => 'string',
@@ -1740,7 +2209,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'bar' =>
+                'bar' => 
                 array (
                   'dataType' => 'DateTime',
                   'actualType' => 'datetime',
@@ -1752,7 +2221,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'number' =>
+                'number' => 
                 array (
                   'dataType' => 'double',
                   'actualType' => 'float',
@@ -1764,7 +2233,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'arr' =>
+                'arr' => 
                 array (
                   'dataType' => 'array',
                   'actualType' => 'collection',
@@ -1776,7 +2245,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'nested' =>
+                'nested' => 
                 array (
                   'dataType' => 'object (JmsNested)',
                   'actualType' => 'model',
@@ -1788,7 +2257,7 @@ With multiple lines.',
                   'sinceVersion' => NULL,
                   'untilVersion' => NULL,
                 ),
-                'nested_array' =>
+                'nested_array' => 
                 array (
                   'dataType' => 'array of objects (JmsNested)',
                   'actualType' => 'collection',
@@ -1802,7 +2271,7 @@ With multiple lines.',
                 ),
               ),
             ),
-            'since' =>
+            'since' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -1814,7 +2283,7 @@ With multiple lines.',
               'sinceVersion' => '0.2',
               'untilVersion' => NULL,
             ),
-            'until' =>
+            'until' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -1826,7 +2295,7 @@ With multiple lines.',
               'sinceVersion' => NULL,
               'untilVersion' => '0.3',
             ),
-            'since_and_until' =>
+            'since_and_until' => 
             array (
               'dataType' => 'string',
               'actualType' => 'string',
@@ -1840,7 +2309,281 @@ With multiple lines.',
             ),
           ),
         ),
-        'nested_array' =>
+        'nested_array' => 
+        array (
+          'dataType' => 'array of objects (JmsNested)',
+          'actualType' => 'collection',
+          'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+        'child' => 
+        array (
+          'dataType' => 'string',
+          'actualType' => 'string',
+          'subType' => NULL,
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+      ),
+      'https' => false,
+      'authentication' => false,
+      'authenticationRoles' => 
+      array (
+      ),
+      'deprecated' => false,
+    ),
+    8 => 
+    array (
+      'method' => 'ANY',
+      'uri' => '/return-nested-output',
+      'response' => 
+      array (
+        'foo' => 
+        array (
+          'dataType' => 'string',
+          'actualType' => 'string',
+          'subType' => NULL,
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+        'bar' => 
+        array (
+          'dataType' => 'DateTime',
+          'actualType' => 'datetime',
+          'subType' => NULL,
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => true,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+        'number' => 
+        array (
+          'dataType' => 'double',
+          'actualType' => 'float',
+          'subType' => NULL,
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+        'arr' => 
+        array (
+          'dataType' => 'array',
+          'actualType' => 'collection',
+          'subType' => NULL,
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+        ),
+        'nested' => 
+        array (
+          'dataType' => 'object (JmsNested)',
+          'actualType' => 'model',
+          'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+          'required' => false,
+          'default' => NULL,
+          'description' => '',
+          'readonly' => false,
+          'sinceVersion' => NULL,
+          'untilVersion' => NULL,
+          'children' => 
+          array (
+            'foo' => 
+            array (
+              'dataType' => 'DateTime',
+              'actualType' => 'datetime',
+              'subType' => NULL,
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => true,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+            ),
+            'bar' => 
+            array (
+              'dataType' => 'string',
+              'actualType' => 'string',
+              'subType' => NULL,
+              'required' => false,
+              'default' => 'baz',
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+            ),
+            'baz' => 
+            array (
+              'dataType' => 'array of integers',
+              'actualType' => 'collection',
+              'subType' => 'integer',
+              'required' => false,
+              'default' => NULL,
+              'description' => 'Epic description.
+
+With multiple lines.',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+            ),
+            'circular' => 
+            array (
+              'dataType' => 'object (JmsNested)',
+              'actualType' => 'model',
+              'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+            ),
+            'parent' => 
+            array (
+              'dataType' => 'object (JmsTest)',
+              'actualType' => 'model',
+              'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsTest',
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => NULL,
+              'children' => 
+              array (
+                'foo' => 
+                array (
+                  'dataType' => 'string',
+                  'actualType' => 'string',
+                  'subType' => NULL,
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'bar' => 
+                array (
+                  'dataType' => 'DateTime',
+                  'actualType' => 'datetime',
+                  'subType' => NULL,
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => true,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'number' => 
+                array (
+                  'dataType' => 'double',
+                  'actualType' => 'float',
+                  'subType' => NULL,
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'arr' => 
+                array (
+                  'dataType' => 'array',
+                  'actualType' => 'collection',
+                  'subType' => NULL,
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'nested' => 
+                array (
+                  'dataType' => 'object (JmsNested)',
+                  'actualType' => 'model',
+                  'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+                'nested_array' => 
+                array (
+                  'dataType' => 'array of objects (JmsNested)',
+                  'actualType' => 'collection',
+                  'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\JmsNested',
+                  'required' => false,
+                  'default' => NULL,
+                  'description' => '',
+                  'readonly' => false,
+                  'sinceVersion' => NULL,
+                  'untilVersion' => NULL,
+                ),
+              ),
+            ),
+            'since' => 
+            array (
+              'dataType' => 'string',
+              'actualType' => 'string',
+              'subType' => NULL,
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => '0.2',
+              'untilVersion' => NULL,
+            ),
+            'until' => 
+            array (
+              'dataType' => 'string',
+              'actualType' => 'string',
+              'subType' => NULL,
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => NULL,
+              'untilVersion' => '0.3',
+            ),
+            'since_and_until' => 
+            array (
+              'dataType' => 'string',
+              'actualType' => 'string',
+              'subType' => NULL,
+              'required' => false,
+              'default' => NULL,
+              'description' => '',
+              'readonly' => false,
+              'sinceVersion' => '0.4',
+              'untilVersion' => '0.5',
+            ),
+          ),
+        ),
+        'nested_array' => 
         array (
           'dataType' => 'array of objects (JmsNested)',
           'actualType' => 'collection',
@@ -1855,61 +2598,73 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    8 =>
+    9 => 
+    array (
+      'method' => 'GET',
+      'uri' => '/route_with_host.{_format}',
+      'host' => 'api.test.dev',
+      'description' => 'Route with host placeholder',
+      'requirements' => 
       array (
-        'method' => 'GET',
-        'uri' => '/route_with_host.{_format}',
-        'host' => 'api.test.dev',
-        'description' => 'Route with host placeholder',
-        'requirements' =>
+        'domain' => 
         array (
-          'domain' =>
-          array (
-              'requirement' => 'test.dev|test.com',
-              'dataType' => '',
-              'description' => '',
-          ),
-        '_format' =>
-          array (
-            'requirement' => '',
-            'dataType' => '',
-            'description' => '',
-          ),
+          'requirement' => 'test.dev|test.com',
+          'dataType' => '',
+          'description' => '',
+        ),
+        '_format' => 
+        array (
+          'requirement' => '',
+          'dataType' => '',
+          'description' => '',
+        ),
       ),
-      'views' =>
+      'views' => 
       array (
-          0 => 'default',
+        0 => 'default',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
-          array (
-          ),
+      'authenticationRoles' => 
+      array (
+      ),
       'deprecated' => false,
     ),
-    9 =>
+    10 => 
     array (
       'method' => 'ANY',
       'uri' => '/secure-route',
       'https' => true,
       'authentication' => false,
-      'authenticationRoles' =>
-        array (
-        ),
+      'authenticationRoles' => 
+      array (
+      ),
       'deprecated' => false,
     ),
-    10 =>
+    11 => 
+    array (
+      'method' => 'GET',
+      'uri' => '/with-link',
+      'link' => 'http://symfony.com',
+      'https' => false,
+      'authentication' => false,
+      'authenticationRoles' => 
+      array (
+      ),
+      'deprecated' => false,
+    ),
+    12 => 
     array (
       'method' => 'ANY',
       'uri' => '/yet-another/{id}',
-      'requirements' =>
+      'requirements' => 
       array (
-        'id' =>
+        'id' => 
         array (
           'requirement' => '\\d+',
           'dataType' => '',
@@ -1918,29 +2673,71 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    11 =>
+    13 => 
+    array (
+      'method' => 'POST',
+      'uri' => '/z-action-with-array-request-param',
+      'parameters' => 
+      array (
+        'param1' => 
+        array (
+          'required' => true,
+          'dataType' => 'string[]',
+          'actualType' => 'string',
+          'subType' => NULL,
+          'description' => NULL,
+          'readonly' => false,
+        ),
+      ),
+      'https' => false,
+      'authentication' => false,
+      'authenticationRoles' => 
+      array (
+      ),
+      'deprecated' => false,
+    ),
+    14 => 
+    array (
+      'method' => 'GET',
+      'uri' => '/z-action-with-constraint-requirements',
+      'filters' => 
+      array (
+        'mail' => 
+        array (
+          'requirement' => 'Email',
+          'description' => 'Email of someone.',
+        ),
+      ),
+      'https' => false,
+      'authentication' => false,
+      'authenticationRoles' => 
+      array (
+      ),
+      'deprecated' => false,
+    ),
+    15 => 
     array (
       'method' => 'GET',
       'uri' => '/z-action-with-deprecated-indicator',
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => true,
     ),
-    12 =>
+    16 => 
     array (
       'method' => 'POST',
       'uri' => '/z-action-with-nullable-request-param',
-      'parameters' =>
+      'parameters' => 
       array (
-        'param1' =>
+        'param1' => 
         array (
           'required' => false,
           'dataType' => 'string',
@@ -1952,38 +2749,38 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    13 =>
+    17 => 
     array (
       'method' => 'GET',
       'uri' => '/z-action-with-query-param',
-      'filters' =>
+      'filters' => 
       array (
-        'page' =>
+        'page' => 
         array (
           'requirement' => '\\d+',
           'description' => 'Page of the overview.',
-          'default' => '1',
+          'default' => 1,
         ),
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    14 =>
+    18 => 
     array (
       'method' => 'GET',
       'uri' => '/z-action-with-query-param-no-default',
-      'filters' =>
+      'filters' => 
       array (
-        'page' =>
+        'page' => 
         array (
           'requirement' => '\\d+',
           'description' => 'Page of the overview.',
@@ -1991,18 +2788,18 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    15 =>
+    19 => 
     array (
       'method' => 'GET',
       'uri' => '/z-action-with-query-param-strict',
-      'requirements' =>
+      'requirements' => 
       array (
-        'page' =>
+        'page' => 
         array (
           'requirement' => '\\d+',
           'dataType' => '',
@@ -2011,18 +2808,18 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    16 =>
+    20 => 
     array (
       'method' => 'POST',
       'uri' => '/z-action-with-request-param',
-      'parameters' =>
+      'parameters' => 
       array (
-        'param1' =>
+        'param1' => 
         array (
           'required' => true,
           'dataType' => 'string',
@@ -2034,18 +2831,74 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    17 =>
+    21 => 
+    array (
+      'method' => 'GET',
+      'uri' => '/z-query-param-array-requirements',
+      'filters' => 
+      array (
+        'param1' => 
+        array (
+          'requirement' => 'regexp',
+          'description' => 'Param1 description.',
+        ),
+      ),
+      'https' => false,
+      'authentication' => false,
+      'authenticationRoles' => 
+      array (
+      ),
+      'deprecated' => false,
+    ),
+    22 => 
+    array (
+      'method' => 'GET',
+      'uri' => '/z-query-param-plain-array-requirements',
+      'filters' => 
+      array (
+        'param1' => 
+        array (
+          'requirement' => 'NotNull, NotBlank',
+          'description' => 'Param1 description.',
+        ),
+      ),
+      'https' => false,
+      'authentication' => false,
+      'authenticationRoles' => 
+      array (
+      ),
+      'deprecated' => false,
+    ),
+    23 => 
+    array (
+      'method' => 'GET',
+      'uri' => '/z-query-requirement-param-not-set',
+      'filters' => 
+      array (
+        'param1' => 
+        array (
+          'description' => 'Param1 description.',
+        ),
+      ),
+      'https' => false,
+      'authentication' => false,
+      'authenticationRoles' => 
+      array (
+      ),
+      'deprecated' => false,
+    ),
+    24 => 
     array (
       'method' => 'ANY',
       'uri' => '/z-return-jms-and-validator-output',
-      'response' =>
+      'response' => 
       array (
-        'bar' =>
+        'bar' => 
         array (
           'default' => NULL,
           'actualType' => 'datetime',
@@ -2054,25 +2907,25 @@ With multiple lines.',
           'readonly' => NULL,
           'required' => NULL,
         ),
-        'objects' =>
+        'objects' => 
         array (
           'default' => NULL,
           'actualType' => 'collection',
           'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\Test',
           'dataType' => 'array of objects (Test)',
-          'children' =>
+          'children' => 
           array (
-            'a' =>
+            'a' => 
             array (
               'default' => 'nelmio',
               'actualType' => 'string',
               'subType' => NULL,
-              'format' => '{length: min: foo}, {not blank}',
+              'format' => '{length: min: 3}, {not blank}',
               'required' => true,
               'dataType' => 'string',
               'readonly' => NULL,
             ),
-            'b' =>
+            'b' => 
             array (
               'default' => NULL,
               'actualType' => 'datetime',
@@ -2085,7 +2938,7 @@ With multiple lines.',
           'readonly' => NULL,
           'required' => NULL,
         ),
-        'number' =>
+        'number' => 
         array (
           'dataType' => 'DateTime',
           'actualType' => 'datetime',
@@ -2097,7 +2950,7 @@ With multiple lines.',
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
         ),
-        'related' =>
+        'related' => 
         array (
           'dataType' => 'object (Test)',
           'actualType' => 'model',
@@ -2108,19 +2961,19 @@ With multiple lines.',
           'readonly' => false,
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
-          'children' =>
+          'children' => 
           array (
-            'a' =>
+            'a' => 
             array (
               'default' => 'nelmio',
               'actualType' => 'string',
               'subType' => NULL,
-              'format' => '{length: min: foo}, {not blank}',
+              'format' => '{length: min: 3}, {not blank}',
               'required' => true,
               'dataType' => 'string',
               'readonly' => NULL,
             ),
-            'b' =>
+            'b' => 
             array (
               'default' => NULL,
               'actualType' => 'datetime',
@@ -2134,18 +2987,18 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    18 =>
+    25 => 
     array (
       'method' => 'ANY',
       'uri' => '/z-return-selected-parsers-input',
-      'parameters' =>
+      'parameters' => 
       array (
-        'a' =>
+        'a' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
@@ -2155,17 +3008,17 @@ With multiple lines.',
           'description' => 'A nice description',
           'readonly' => false,
         ),
-        'b' =>
+        'b' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
           'subType' => NULL,
           'default' => NULL,
-          'required' => false,
+          'required' => true,
           'description' => NULL,
           'readonly' => false,
         ),
-        'c' =>
+        'c' => 
         array (
           'dataType' => 'boolean',
           'actualType' => 'boolean',
@@ -2175,7 +3028,7 @@ With multiple lines.',
           'description' => NULL,
           'readonly' => false,
         ),
-        'd' =>
+        'd' => 
         array (
           'dataType' => 'string',
           'actualType' => 'string',
@@ -2188,18 +3041,18 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    19 =>
+    26 => 
     array (
       'method' => 'ANY',
       'uri' => '/z-return-selected-parsers-output',
-      'response' =>
+      'response' => 
       array (
-        'bar' =>
+        'bar' => 
         array (
           'default' => NULL,
           'actualType' => 'datetime',
@@ -2208,25 +3061,25 @@ With multiple lines.',
           'readonly' => NULL,
           'required' => NULL,
         ),
-        'objects' =>
+        'objects' => 
         array (
           'default' => NULL,
           'actualType' => 'collection',
           'subType' => 'Nelmio\\ApiDocBundle\\Tests\\Fixtures\\Model\\Test',
           'dataType' => 'array of objects (Test)',
-          'children' =>
+          'children' => 
           array (
-            'a' =>
+            'a' => 
             array (
               'default' => 'nelmio',
               'actualType' => 'string',
               'subType' => NULL,
-              'format' => '{length: min: foo}, {not blank}',
+              'format' => '{length: min: 3}, {not blank}',
               'required' => true,
               'dataType' => 'string',
               'readonly' => NULL,
             ),
-            'b' =>
+            'b' => 
             array (
               'default' => NULL,
               'actualType' => 'datetime',
@@ -2239,7 +3092,7 @@ With multiple lines.',
           'readonly' => NULL,
           'required' => NULL,
         ),
-        'number' =>
+        'number' => 
         array (
           'dataType' => 'DateTime',
           'actualType' => 'datetime',
@@ -2251,7 +3104,7 @@ With multiple lines.',
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
         ),
-        'related' =>
+        'related' => 
         array (
           'dataType' => 'object (Test)',
           'actualType' => 'model',
@@ -2262,19 +3115,19 @@ With multiple lines.',
           'readonly' => false,
           'sinceVersion' => NULL,
           'untilVersion' => NULL,
-          'children' =>
+          'children' => 
           array (
-            'a' =>
+            'a' => 
             array (
               'default' => 'nelmio',
               'actualType' => 'string',
               'subType' => NULL,
-              'format' => '{length: min: foo}, {not blank}',
+              'format' => '{length: min: 3}, {not blank}',
               'required' => true,
               'dataType' => 'string',
               'readonly' => NULL,
             ),
-            'b' =>
+            'b' => 
             array (
               'default' => NULL,
               'actualType' => 'datetime',
@@ -2288,30 +3141,30 @@ With multiple lines.',
       ),
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    20 =>
+    27 => 
     array (
       'method' => 'POST',
       'uri' => '/zcached',
       'cache' => 60,
       'https' => false,
       'authentication' => false,
-      'authenticationRoles' =>
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,
     ),
-    21 =>
+    28 => 
     array (
       'method' => 'POST',
       'uri' => '/zsecured',
       'https' => false,
-      'authentication' => true,
-      'authenticationRoles' =>
+      'authentication' => false,
+      'authenticationRoles' => 
       array (
       ),
       'deprecated' => false,

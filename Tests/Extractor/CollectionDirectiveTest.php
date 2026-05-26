@@ -11,14 +11,14 @@
 
 namespace Nelmio\ApiDocBundle\Tests\Extractor;
 
-class CollectionDirectiveTest extends \PHPUnit_Framework_TestCase
+class CollectionDirectiveTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var TestExtractor
      */
     private $testExtractor;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->testExtractor = new TestExtractor();
     }
@@ -41,7 +41,7 @@ class CollectionDirectiveTest extends \PHPUnit_Framework_TestCase
         return array(
             'test_simple_notation' => array(
                 'array<User>',
-                function ($actual, \PHPUnit_Framework_TestCase $case) {
+                function ($actual, \PHPUnit\Framework\TestCase $case) {
                     $case->assertArrayHasKey('collection', $actual);
                     $case->assertArrayHasKey('collectionName', $actual);
                     $case->assertArrayHasKey('class', $actual);
@@ -53,7 +53,7 @@ class CollectionDirectiveTest extends \PHPUnit_Framework_TestCase
             ),
             'test_simple_notation_with_namespaces' => array(
                 'array<Vendor0_2\\_Namespace1\\Namespace_2\\User>',
-                function ($actual, \PHPUnit_Framework_TestCase $case) {
+                function ($actual, \PHPUnit\Framework\TestCase $case) {
                     $case->assertArrayHasKey('collection', $actual);
                     $case->assertArrayHasKey('collectionName', $actual);
                     $case->assertArrayHasKey('class', $actual);
@@ -65,7 +65,7 @@ class CollectionDirectiveTest extends \PHPUnit_Framework_TestCase
             ),
             'test_simple_named_collections' => array(
                 'array<Group> as groups',
-                function ($actual, \PHPUnit_Framework_TestCase $case) {
+                function ($actual, \PHPUnit\Framework\TestCase $case) {
                     $case->assertArrayHasKey('collection', $actual);
                     $case->assertArrayHasKey('collectionName', $actual);
                     $case->assertArrayHasKey('class', $actual);
@@ -77,7 +77,7 @@ class CollectionDirectiveTest extends \PHPUnit_Framework_TestCase
             ),
             'test_namespaced_named_collections' => array(
                 'array<_Vendor\\Namespace0\\Namespace_2F3\\Group> as groups',
-                function ($actual, \PHPUnit_Framework_TestCase $case) {
+                function ($actual, \PHPUnit\Framework\TestCase $case) {
                     $case->assertArrayHasKey('collection', $actual);
                     $case->assertArrayHasKey('collectionName', $actual);
                     $case->assertArrayHasKey('class', $actual);
@@ -92,12 +92,12 @@ class CollectionDirectiveTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \InvalidArgumentException
      * @dataProvider dataInvalidDirectives
      * @param $input
      */
     public function testInvalidDirectives($input)
     {
+        $this->expectException(\InvalidArgumentException::class);
         $this->normalize($input);
     }
 

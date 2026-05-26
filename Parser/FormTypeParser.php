@@ -108,7 +108,7 @@ class FormTypeParser implements ParserInterface
     public function __construct(FormFactoryInterface $formFactory, $entityToChoice)
     {
         $this->formFactory    = $formFactory;
-        $this->entityToChoice = (boolean) $entityToChoice;
+        $this->entityToChoice = (bool) $entityToChoice;
     }
 
     /**

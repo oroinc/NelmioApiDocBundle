@@ -535,7 +535,7 @@ class SwaggerFormatter implements FormatterInterface
      * @internal param $models
      * @return mixed
      */
-    public function registerModel($className, array $parameters = null, $description = '')
+    public function registerModel($className, ?array $parameters = null, $description = '')
     {
         return $this->modelRegistry->register($className, $parameters, $description);
     }

@@ -212,7 +212,8 @@ class ApiDocExtractor
                     $this->container->enterScope('request');
                     $this->container->set('request', new Request(), 'request');
                 }
-                $class = ClassUtils::getRealClass(get_class($this->container->get($controller)));
+                $controllerClass = get_class($this->container->get($controller));
+                $class = class_exists(ClassUtils::class) ? ClassUtils::getRealClass($controllerClass) : $controllerClass;
                 // BC SF < 3.0
                 if (method_exists($this->container, 'enterScope')) {
                     $this->container->leaveScope('request');
@@ -509,6 +510,14 @@ class ApiDocExtractor
     protected function parseAnnotations(ApiDoc $annotation, Route $route, \ReflectionMethod $method)
     {
         $annots = $this->reader->getMethodAnnotations($method);
+        // Also expose PHP attributes (e.g. FOS\RestBundle QueryParam/RequestParam) to the handlers.
+        foreach ($method->getAttributes() as $attribute) {
+            try {
+                $annots[] = $attribute->newInstance();
+            } catch (\Throwable) {
+                // Skip attributes that cannot be instantiated in this context.
+            }
+        }
         foreach ($this->handlers as $handler) {
             $handler->handle($annotation, $annots, $route, $method);
         }

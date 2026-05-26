@@ -29,7 +29,7 @@ class SwaggerConfigCompilerPass implements CompilerPassInterface
      *
      * @api
      */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $formatter = $container->getDefinition('nelmio_api_doc.formatter.swagger_formatter');
 

@@ -31,6 +31,13 @@
             <argument type="collection" />
         </service>
 
+        <service id="Nelmio\ApiDocBundle\Controller\ApiDocController" public="true">
+            <argument type="service" id="nelmio_api_doc.extractor.api_doc_extractor" />
+            <argument type="service" id="nelmio_api_doc.formatter.html_formatter" />
+            <argument type="service" id="nelmio_api_doc.formatter.swagger_formatter" />
+            <tag name="controller.service_arguments" />
+        </service>
+
         <service id="nelmio_api_doc.form.extension.description_form_type_extension" class="%nelmio_api_doc.form.extension.description_form_type_extension.class%">
             <tag name="form.type_extension" alias="form" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType" />
         </service>

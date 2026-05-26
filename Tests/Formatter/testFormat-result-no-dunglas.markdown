@@ -103,6 +103,44 @@ With multiple lines.
   * type: array of objects (JmsNested)
 
 
+### `PATCH` /api/other-resources/{id}.{_format} ###
+
+
+#### Requirements ####
+
+**_format**
+
+  - Requirement: json|xml|html
+**id**
+
+
+#### Parameters ####
+
+required_field:
+
+  * type: string
+  * required: false
+
+
+### `POST` /api/other-resources/{id}.{_format} ###
+
+
+#### Requirements ####
+
+**_format**
+
+  - Requirement: json|xml|html
+**id**
+
+
+#### Parameters ####
+
+required_field:
+
+  * type: string
+  * required: true
+
+
 ### `PUT|PATCH` /api/other-resources/{id}.{_format} ###
 
 _Update a resource bu ID._
@@ -362,27 +400,6 @@ b:
   * Arbitrary: ["arg1","arg2"]
 
 
-### `GET` /tests.{_format} ###
-
-_index action_
-
-#### Requirements ####
-
-**_format**
-
-
-#### Filters ####
-
-a:
-
-  * DataType: integer
-
-b:
-
-  * DataType: string
-  * Arbitrary: ["arg1","arg2"]
-
-
 ### `POST` /tests.{_format} ###
 
 _create test_
@@ -403,41 +420,7 @@ a:
 b:
 
   * type: string
-  * required: false
-
-c:
-
-  * type: boolean
   * required: true
-
-d:
-
-  * type: string
-  * required: true
-  * default value: DefaultTest
-
-
-### `POST` /tests.{_format} ###
-
-_create test_
-
-#### Requirements ####
-
-**_format**
-
-
-#### Parameters ####
-
-a:
-
-  * type: string
-  * required: true
-  * description: A nice description
-
-b:
-
-  * type: string
-  * required: false
 
 c:
 
@@ -487,11 +470,6 @@ dependency_type[a]:
   * description: A nice description
 
 
-### `ANY` /any ###
-
-_Action without HTTP verb_
-
-
 ### `ANY` /any/{foo} ###
 
 _Action without HTTP verb_
@@ -500,6 +478,190 @@ _Action without HTTP verb_
 
 **foo**
 
+
+
+### `POST|PUT` /api/overrride/properties ###
+
+
+#### Parameters ####
+
+foo:
+
+  * type: string
+  * required: false
+
+number:
+
+  * type: integer
+  * required: true
+  * description: This is the new description
+
+arr:
+
+  * type: object (ArrayCollection)
+  * required: false
+
+nested:
+
+  * type: object (JmsNested)
+  * required: false
+
+nested[bar]:
+
+  * type: integer
+  * required: false
+  * default value: baz
+
+nested[baz][]:
+
+  * type: array of integers
+  * required: false
+  * description: Epic description.
+
+With multiple lines.
+
+nested[circular]:
+
+  * type: object (JmsNested)
+  * required: false
+
+nested[parent]:
+
+  * type: object (JmsTest)
+  * required: false
+
+nested[parent][foo]:
+
+  * type: string
+  * required: false
+
+nested[parent][number]:
+
+  * type: double
+  * required: false
+
+nested[parent][arr]:
+
+  * type: array
+  * required: false
+
+nested[parent][nested]:
+
+  * type: object (JmsNested)
+  * required: false
+
+nested[parent][nested_array][]:
+
+  * type: array of objects (JmsNested)
+  * required: false
+
+nested[since]:
+
+  * type: string
+  * required: false
+
+nested[until]:
+
+  * type: string
+  * required: false
+
+nested[since_and_until]:
+
+  * type: string
+  * required: false
+
+nested_array[]:
+
+  * type: array of objects (JmsNested)
+  * required: false
+
+#### Response ####
+
+foo:
+
+  * type: string
+
+bar:
+
+  * type: DateTime
+
+number:
+
+  * type: double
+
+arr:
+
+  * type: array
+
+nested:
+
+  * type: object (JmsNested)
+
+nested[foo]:
+
+  * type: DateTime
+
+nested[bar]:
+
+  * type: string
+
+nested[baz][]:
+
+  * type: array of integers
+  * description: Epic description.
+
+With multiple lines.
+
+nested[circular]:
+
+  * type: object (JmsNested)
+
+nested[parent]:
+
+  * type: object (JmsTest)
+
+nested[parent][foo]:
+
+  * type: string
+
+nested[parent][bar]:
+
+  * type: DateTime
+
+nested[parent][number]:
+
+  * type: double
+
+nested[parent][arr]:
+
+  * type: array
+
+nested[parent][nested]:
+
+  * type: object (JmsNested)
+
+nested[parent][nested_array][]:
+
+  * type: array of objects (JmsNested)
+
+nested[since]:
+
+  * type: string
+  * versions: >=0.2
+
+nested[until]:
+
+  * type: string
+  * versions: <=0.3
+
+nested[since_and_until]:
+
+  * type: string
+  * versions: >=0.4,<=0.5
+
+nested_array[]:
+
+  * type: array of objects (JmsNested)
 
 
 ### `ANY` /authenticated ###
@@ -644,6 +806,102 @@ And, it supports multilines until the first '@' char.
   - Description: The param id
 
 
+### `ANY` /return-nested-extend-output ###
+
+
+#### Response ####
+
+foo:
+
+  * type: string
+
+bar:
+
+  * type: DateTime
+
+number:
+
+  * type: double
+
+arr:
+
+  * type: array
+
+nested:
+
+  * type: object (JmsNested)
+
+nested[foo]:
+
+  * type: DateTime
+
+nested[bar]:
+
+  * type: string
+
+nested[baz][]:
+
+  * type: array of integers
+  * description: Epic description.
+
+With multiple lines.
+
+nested[circular]:
+
+  * type: object (JmsNested)
+
+nested[parent]:
+
+  * type: object (JmsTest)
+
+nested[parent][foo]:
+
+  * type: string
+
+nested[parent][bar]:
+
+  * type: DateTime
+
+nested[parent][number]:
+
+  * type: double
+
+nested[parent][arr]:
+
+  * type: array
+
+nested[parent][nested]:
+
+  * type: object (JmsNested)
+
+nested[parent][nested_array][]:
+
+  * type: array of objects (JmsNested)
+
+nested[since]:
+
+  * type: string
+  * versions: >=0.2
+
+nested[until]:
+
+  * type: string
+  * versions: <=0.3
+
+nested[since_and_until]:
+
+  * type: string
+  * versions: >=0.4,<=0.5
+
+nested_array[]:
+
+  * type: array of objects (JmsNested)
+
+child:
+
+  * type: string
+
+
 ### `ANY` /return-nested-output ###
 
 
@@ -753,6 +1011,10 @@ _Route with host placeholder_
 
 
 
+### `GET` /with-link ###
+
+
+
 ### `ANY` /yet-another/{id} ###
 
 
@@ -761,6 +1023,28 @@ _Route with host placeholder_
 **id**
 
   - Requirement: \d+
+
+
+### `POST` /z-action-with-array-request-param ###
+
+
+#### Parameters ####
+
+param1:
+
+  * type: string[]
+  * required: true
+
+
+### `GET` /z-action-with-constraint-requirements ###
+
+
+#### Filters ####
+
+mail:
+
+  * Requirement: Email
+  * Description: Email of someone.
 
 
 ### `GET` /z-action-with-deprecated-indicator ###
@@ -827,6 +1111,38 @@ param1:
   * description: Param1 description.
 
 
+### `GET` /z-query-param-array-requirements ###
+
+
+#### Filters ####
+
+param1:
+
+  * Requirement: regexp
+  * Description: Param1 description.
+
+
+### `GET` /z-query-param-plain-array-requirements ###
+
+
+#### Filters ####
+
+param1:
+
+  * Requirement: NotNull, NotBlank
+  * Description: Param1 description.
+
+
+### `GET` /z-query-requirement-param-not-set ###
+
+
+#### Filters ####
+
+param1:
+
+  * Description: Param1 description.
+
+
 ### `ANY` /z-return-jms-and-validator-output ###
 
 
@@ -879,7 +1195,7 @@ a:
 b:
 
   * type: string
-  * required: false
+  * required: true
 
 c:
 

@@ -14,7 +14,7 @@ use Symfony\Component\Config\FileLocator;
  */
 class LoadExtractorParsersPass implements CompilerPassInterface
 {
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 

@@ -83,7 +83,7 @@ class HtmlFormatter extends AbstractFormatter
     /**
      * @param array $authentication
      */
-    public function setAuthentication(array $authentication = null)
+    public function setAuthentication(?array $authentication = null)
     {
         $this->authentication = $authentication;
     }

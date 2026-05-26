@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class RegisterExtractorParsersPass implements CompilerPassInterface
 {
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         if (false === $container->hasDefinition('nelmio_api_doc.extractor.api_doc_extractor')) {
             return;

@@ -148,7 +148,7 @@ abstract class AbstractFormatter implements FormatterInterface
     {
         $array = array();
         foreach ($collection as $coll) {
-            $array[$coll['annotation']->getSection()][$coll['resource']][] = $coll['annotation']->toArray();
+            $array[(string) $coll['annotation']->getSection()][$coll['resource']][] = $coll['annotation']->toArray();
         }
 
         $processedCollection = array();

@@ -19,11 +19,11 @@ class ApiDocExtractorTest extends WebTestCase
 {
     const NB_ROUTES_ADDED_BY_DUNGLAS_API_BUNDLE = 5;
 
-    private static $ROUTES_QUANTITY_DEFAULT = 34; // Routes in the default view
-    private static $ROUTES_QUANTITY_PREMIUM = 6;  // Routes in the premium view
+    private static $ROUTES_QUANTITY_DEFAULT = 41; // Routes in the default view
+    private static $ROUTES_QUANTITY_PREMIUM = 5;  // Routes in the premium view
     private static $ROUTES_QUANTITY_TEST    = 2;  // Routes in the test view
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         if (class_exists('Dunglas\ApiBundle\DunglasApiBundle')) {
             self::$ROUTES_QUANTITY_DEFAULT += self::NB_ROUTES_ADDED_BY_DUNGLAS_API_BUNDLE;
@@ -39,11 +39,6 @@ class ApiDocExtractorTest extends WebTestCase
         set_error_handler(array($this, 'handleDeprecation'));
         $data = $extractor->all();
         restore_error_handler();
-
-        $httpsKey = 21;
-        if (class_exists('Dunglas\ApiBundle\DunglasApiBundle')) {
-            $httpsKey += self::NB_ROUTES_ADDED_BY_DUNGLAS_API_BUNDLE;
-        }
 
         $this->assertTrue(is_array($data));
         $this->assertCount(self::$ROUTES_QUANTITY_DEFAULT, $data);
@@ -62,38 +57,57 @@ class ApiDocExtractorTest extends WebTestCase
             $this->assertNotNull($d['resource']);
         }
 
-        $a1 = $data[7]['annotation'];
-        $array1 = $a1->toArray();
-        $this->assertTrue($a1->isResource());
-        $this->assertEquals('index action', $a1->getDescription());
+        // Look up annotations by their characteristics instead of fragile positional indices,
+        // so the assertions are independent of route ordering.
+        $indexAction = $createTests = $httpsAction = $testResource = $hostAction = null;
+        $createTests = array();
+        foreach ($data as $d) {
+            $annotation = $d['annotation'];
+            if ('index action' === $annotation->getDescription()) {
+                $indexAction = $annotation;
+            }
+            if ('create test' === $annotation->getDescription()) {
+                $createTests[] = $annotation;
+            }
+            if ($annotation->getHttps()) {
+                $httpsAction = $annotation;
+            }
+            if ('TestResource' === $annotation->getResource()) {
+                $testResource = $annotation;
+            }
+            $requirements = $annotation->getRequirements();
+            if (isset($requirements['domain'])) {
+                $hostAction = $annotation;
+            }
+        }
+
+        $this->assertNotNull($indexAction);
+        $array1 = $indexAction->toArray();
+        $this->assertTrue($indexAction->isResource());
+        $this->assertEquals('index action', $indexAction->getDescription());
         $this->assertTrue(is_array($array1['filters']));
-        $this->assertNull($a1->getInput());
+        $this->assertNull($indexAction->getInput());
 
-        $a2 = $data[8]['annotation'];
-        $array2 = $a2->toArray();
-        $this->assertFalse($a2->isResource());
-        $this->assertEquals('create test', $a2->getDescription());
-        $this->assertFalse(isset($array2['filters']));
-        $this->assertEquals('Nelmio\ApiDocBundle\Tests\Fixtures\Form\TestType', $a2->getInput());
+        $this->assertNotEmpty($createTests);
+        foreach ($createTests as $a2) {
+            $array2 = $a2->toArray();
+            $this->assertFalse($a2->isResource());
+            $this->assertEquals('create test', $a2->getDescription());
+            $this->assertFalse(isset($array2['filters']));
+            $this->assertEquals('Nelmio\ApiDocBundle\Tests\Fixtures\Form\TestType', $a2->getInput());
+        }
 
-        $a2 = $data[9]['annotation'];
-        $array2 = $a2->toArray();
-        $this->assertFalse($a2->isResource());
-        $this->assertEquals('create test', $a2->getDescription());
-        $this->assertFalse(isset($array2['filters']));
-        $this->assertEquals('Nelmio\ApiDocBundle\Tests\Fixtures\Form\TestType', $a2->getInput());
+        $this->assertNotNull($httpsAction);
+        $this->assertTrue($httpsAction->getHttps());
 
-        $a3 = $data[$httpsKey]['annotation'];
-        $this->assertTrue($a3->getHttps());
+        $this->assertNotNull($testResource);
+        $this->assertTrue($testResource->isResource());
+        $this->assertEquals('TestResource', $testResource->getResource());
 
-        $a4 = $data[11]['annotation'];
-        $this->assertTrue($a4->isResource());
-        $this->assertEquals('TestResource', $a4->getResource());
-
-        $a5 = $data[$httpsKey - 1]['annotation'];
-        $a5requirements = $a5->getRequirements();
-        $this->assertEquals('api.test.dev', $a5->getHost());
-        $this->assertEquals('test.dev|test.com', $a5requirements['domain']['requirement']);
+        $this->assertNotNull($hostAction);
+        $hostRequirements = $hostAction->getRequirements();
+        $this->assertEquals('api.test.dev', $hostAction->getHost());
+        $this->assertEquals('test.dev|test.com', $hostRequirements['domain']['requirement']);
     }
 
     public function testGet()
@@ -441,7 +455,6 @@ class ApiDocExtractorTest extends WebTestCase
         $extractor = $container->get('nelmio_api_doc.extractor.api_doc_extractor');
 
         $mergeMethod = new \ReflectionMethod('Nelmio\ApiDocBundle\Extractor\ApiDocExtractor', 'mergeParameters');
-        $mergeMethod->setAccessible(true);
 
         $p1 = [
             'myPropName' => [

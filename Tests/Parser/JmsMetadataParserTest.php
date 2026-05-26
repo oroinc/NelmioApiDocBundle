@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NelmioApiDocBundle\Tests\Parser;
+namespace Nelmio\ApiDocBundle\Tests\Parser;
 
 use Nelmio\ApiDocBundle\DataTypes;
 use Nelmio\ApiDocBundle\Tests\Fixtures\Model\JmsNested;
@@ -18,14 +18,14 @@ use JMS\Serializer\Metadata\ClassMetadata;
 use JMS\Serializer\Metadata\PropertyMetadata;
 use JMS\Serializer\Naming\CamelCaseNamingStrategy;
 
-class JmsMetadataParserTest extends \PHPUnit_Framework_TestCase
+class JmsMetadataParserTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @dataProvider dataTestParserWithNestedType
      */
     public function testParserWithNestedType($type)
     {
-        $metadataFactory = $this->getMock('Metadata\MetadataFactoryInterface');
+        $metadataFactory = $this->createMock('Metadata\MetadataFactoryInterface');
         $docCommentExtractor = $this->getMockBuilder('Nelmio\ApiDocBundle\Util\DocCommentExtractor')
             ->disableOriginalConstructor()
             ->getMock();
@@ -56,22 +56,11 @@ class JmsMetadataParserTest extends \PHPUnit_Framework_TestCase
         $metadata->addPropertyMetadata($propertyMetadataBar);
         $metadata->addPropertyMetadata($propertyMetadataBaz);
 
-        $propertyNamingStrategy = $this->getMock('JMS\Serializer\Naming\PropertyNamingStrategyInterface');
+        $propertyNamingStrategy = $this->createMock('JMS\Serializer\Naming\PropertyNamingStrategyInterface');
 
         $propertyNamingStrategy
-            ->expects($this->at(0))
             ->method('translateName')
-            ->will($this->returnValue('foo'));
-
-        $propertyNamingStrategy
-            ->expects($this->at(1))
-            ->method('translateName')
-            ->will($this->returnValue('bar'));
-
-        $propertyNamingStrategy
-            ->expects($this->at(2))
-            ->method('translateName')
-            ->will($this->returnValue('baz'));
+            ->willReturnOnConsecutiveCalls('foo', 'bar', 'baz');
 
         $input = 'Nelmio\ApiDocBundle\Tests\Fixtures\Model\JmsNested';
 
@@ -131,7 +120,7 @@ class JmsMetadataParserTest extends \PHPUnit_Framework_TestCase
 
     public function testParserWithGroups()
     {
-        $metadataFactory     = $this->getMock('Metadata\MetadataFactoryInterface');
+        $metadataFactory     = $this->createMock('Metadata\MetadataFactoryInterface');
         $docCommentExtractor = $this->getMockBuilder('Nelmio\ApiDocBundle\Util\DocCommentExtractor')
             ->disableOriginalConstructor()
             ->getMock();
@@ -332,7 +321,7 @@ class JmsMetadataParserTest extends \PHPUnit_Framework_TestCase
 
     public function testNestedGroups()
     {
-        $metadataFactory     = $this->getMock('Metadata\MetadataFactoryInterface');
+        $metadataFactory     = $this->createMock('Metadata\MetadataFactoryInterface');
         $docCommentExtractor = $this->getMockBuilder('Nelmio\ApiDocBundle\Util\DocCommentExtractor')
             ->disableOriginalConstructor()
             ->getMock();
@@ -419,7 +408,7 @@ class JmsMetadataParserTest extends \PHPUnit_Framework_TestCase
 
     public function testParserWithVersion()
     {
-        $metadataFactory     = $this->getMock('Metadata\MetadataFactoryInterface');
+        $metadataFactory     = $this->createMock('Metadata\MetadataFactoryInterface');
         $docCommentExtractor = $this->getMockBuilder('Nelmio\ApiDocBundle\Util\DocCommentExtractor')
             ->disableOriginalConstructor()
             ->getMock();
@@ -501,7 +490,7 @@ class JmsMetadataParserTest extends \PHPUnit_Framework_TestCase
 
     public function testParserWithInline()
     {
-        $metadataFactory     = $this->getMock('Metadata\MetadataFactoryInterface');
+        $metadataFactory     = $this->createMock('Metadata\MetadataFactoryInterface');
         $docCommentExtractor = $this->getMockBuilder('Nelmio\ApiDocBundle\Util\DocCommentExtractor')
             ->disableOriginalConstructor()
             ->getMock();
@@ -527,20 +516,12 @@ class JmsMetadataParserTest extends \PHPUnit_Framework_TestCase
         $subMetadata = new ClassMetadata($subInput);
         $subMetadata->addPropertyMetadata($propertyMetadataBar);
 
-        $metadataFactory->expects($this->at(0))
+        $metadataFactory
             ->method('getMetadataForClass')
-            ->with($input)
-            ->will($this->returnValue($metadata));
-
-        $metadataFactory->expects($this->at(1))
-            ->method('getMetadataForClass')
-            ->with($subInput)
-            ->will($this->returnValue($subMetadata));
-
-        $metadataFactory->expects($this->at(2))
-            ->method('getMetadataForClass')
-            ->with($subInput)
-            ->will($this->returnValue($subMetadata));
+            ->willReturnMap(array(
+                array($input, $metadata),
+                array($subInput, $subMetadata),
+            ));
 
         $propertyNamingStrategy = new CamelCaseNamingStrategy();
 

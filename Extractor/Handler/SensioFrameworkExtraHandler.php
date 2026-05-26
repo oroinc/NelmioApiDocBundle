@@ -23,7 +23,7 @@ class SensioFrameworkExtraHandler implements HandlerInterface
     {
         foreach ($annotations as $annot) {
             if ($annot instanceof Cache) {
-                $annotation->setCache($annot->getMaxAge());
+                $annotation->setCache($annot->maxage);
             } elseif ($annot instanceof Security) {
                 $annotation->setAuthentication(true);
             }

@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace NelmioApiDocBundle\Tests\Parser;
+namespace Nelmio\ApiDocBundle\Tests\Parser;
 
 use Nelmio\ApiDocBundle\Parser\JsonSerializableParser;
 
-class JsonSerializableParserTest extends \PHPUnit_Framework_TestCase
+class JsonSerializableParserTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var JsonSerializableParser
      */
     private $parser;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->parser = new JsonSerializableParser();
     }

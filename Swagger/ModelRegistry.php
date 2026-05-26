@@ -69,7 +69,7 @@ class ModelRegistry
         $this->namingStategy = array($this, $this->namingStrategies[$namingStrategy]);
     }
 
-    public function register($className, array $parameters = null, $description = '')
+    public function register($className, ?array $parameters = null, $description = '')
     {
         if (!isset($this->classes[$className])) {
             $this->classes[$className] = array();

@@ -508,9 +508,11 @@ class ApiDoc
             $this->host = $route->getHost() ? : null;
 
             //replace route placeholders
-            foreach ($route->getDefaults() as $key => $value) {
-                if (is_string($value)) {
-                    $this->host = str_replace('{' . $key . '}', $value, $this->host);
+            if (null !== $this->host) {
+                foreach ($route->getDefaults() as $key => $value) {
+                    if (is_string($value)) {
+                        $this->host = str_replace('{' . $key . '}', $value, $this->host);
+                    }
                 }
             }
         } else {
